@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "name": "Testing tab",
+    "author": "Pepper",
+    "version": "0.0.1",
+    "description": "Replace new tab screen with test page.",
+    "chrome_url_overrides": {
+        "newtab": "./public/index.html"
+    },
+    "browser_action": {
+        "default-popup": "popup.html"
+    },
+    "permissions": [
+        "storage",
+        "activeTab"
+    ]
+}
