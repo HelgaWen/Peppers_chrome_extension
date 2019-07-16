@@ -69,6 +69,35 @@ const ContentCard = styled.div`
   width: 30%;
 `;
 
+const SearchInput = styled.input`
+  border: 1px solid black;
+  width: 70%;
+`;
+
+const SearchPlatform = styled.button`
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+`;
+
+const SearchDropdown = styled.div`
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  display: none;
+  ${props =>
+    props.show &&
+    css`
+      display: block;
+    `}
+`;
+
 export {
   PageWrapper,
   InputWrapper,
@@ -77,5 +106,8 @@ export {
   GreetingWrapper,
   GreetingText,
   ContentCardWrapper,
-  ContentCard
+  ContentCard,
+  SearchInput,
+  SearchPlatform,
+  SearchDropdown
 };
