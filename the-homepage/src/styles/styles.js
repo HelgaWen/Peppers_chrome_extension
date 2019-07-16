@@ -92,10 +92,10 @@ const SpinnerAnimation = styled.div`
 `;
 
 const SearchWrapper = styled.div`
-  display:flex;
-  justify-content:flex-start;
-  margin: 20px 0; 
-  width:70%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 0;
+  width: 70%;
   border: 1px solid black;
 `;
 
@@ -103,21 +103,22 @@ const SearchInput = styled.input`
   font-size: 16px;
   font-weight: 400;
   padding-left: 20px;
-  outline:none;
+  outline: none;
+
   background-color: transparent;
   border: 0 solid;
-  height:85%;
+  height: 85%;
   overflow: hidden;
-  max-width:70%;
+  max-width: 100%;
 `;
 
 const SearchPlatform = styled.button`
-width: 30%;
+  width: 30%;
   background-color: #fff;
   color: black;
   padding: 16px;
   font-size: 16px;
-  outline:none;
+  outline: none;
   border-right: 1px solid black;
   cursor: pointer;
 `;
