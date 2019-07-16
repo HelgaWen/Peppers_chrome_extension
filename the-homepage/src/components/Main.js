@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import Greeting from "./Greeting";
 import Form from "./Form";
 import Spinner from "./Spinner";
+import ContentContainer from "./ContentContainer";
+import { PageWrapper } from "../styles/styles";
+import SearchBar from "./SearchBar";
 
 class Main extends Component {
   constructor(props) {
@@ -44,7 +47,13 @@ class Main extends Component {
   render() {
     switch (this.state.nameExist) {
       case true:
-        return <Greeting name={this.state.name} />;
+        return (
+          <PageWrapper>
+            <Greeting name={this.state.name} />
+            <SearchBar />
+            <ContentContainer />
+          </PageWrapper>
+        );
       case false:
         return (
           <Form handleSubmit={this.handleSubmit} inputName={this.inputName} />
