@@ -91,35 +91,37 @@ const SpinnerAnimation = styled.div`
   border-bottom-color: #f90;
   animation: ${rotate360} .6s linear infinite;
 
-  ${props => props.two && css`
-    width: 150px;
-    height:150px;
-    margin-top: -75px;
-    animation: ${rotate360} .8s linear infinite;
-    animation-direction: reverse;
-  `}
-  ${props => props.three && css`
-    width: 200px;
-    height:200px;
-    margin-top: -100px;
-    animation: ${rotate360} 1s linear infinite;
-  `}
-  ${props => props.four && css`
-    width: 250px;
-    height:250px;
-    margin-top: -125px;
-    animation: ${rotate360} 1.2s linear infinite;
-    animation-direction: reverse;
-  `}
-  ${props => props.five && css`
-    width: 300px;
-    height:300px;
-    margin-top: -150px;
-    animation: ${rotate360} 1.4s linear infinite;
-  `}
 `;
 
 
+const SearchInput = styled.input`
+  border: 1px solid black;
+  width: 70%;
+`;
+
+const SearchPlatform = styled.button`
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+`;
+
+const SearchDropdown = styled.div`
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  display: none;
+  ${props =>
+    props.show &&
+    css`
+      display: block;
+    `}
+`;
 
 export {
   PageWrapper,
@@ -130,5 +132,8 @@ export {
   GreetingText,
   ContentCardWrapper,
   ContentCard,
-  SpinnerAnimation
+  SpinnerAnimation,
+  SearchInput,
+  SearchPlatform,
+  SearchDropdown
 };
