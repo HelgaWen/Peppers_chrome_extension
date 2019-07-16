@@ -76,23 +76,20 @@ const rotate360 = keyframes`
 `;
 
 const SpinnerAnimation = styled.div`
-  
-  content: '';
+  content: "";
   box-sizing: border-box;
   position: absolute;
   top: 50%;
   width: 100px;
   height: 100px;
-  margin-top: -50px;  
+  margin-top: -50px;
   border-radius: 50%;
   border: 1px solid #f6f;
   border-top-color: #0e0;
   border-right-color: #0dd;
   border-bottom-color: #f90;
-  animation: ${rotate360} .6s linear infinite;
-
+  animation: ${rotate360} 0.6s linear infinite;
 `;
-
 
 const SearchInput = styled.input`
   border: 1px solid black;
