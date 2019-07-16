@@ -1,8 +1,8 @@
 /* global chrome*/
 import React, { Component } from "react";
-import { PageWrapper } from "../styles/styles";
 import Greeting from "./Greeting";
 import Form from "./Form";
+import Spinner from "./Spinner";
 
 class Main extends Component {
   constructor(props) {
@@ -50,7 +50,7 @@ class Main extends Component {
           <Form handleSubmit={this.handleSubmit} inputName={this.inputName} />
         );
       default:
-        return <PageWrapper>Loading...</PageWrapper>;
+        return <Spinner />;
     }
   }
 }
