@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 const PageWrapper = styled.div`
   width: 100%;
@@ -69,6 +69,58 @@ const ContentCard = styled.div`
   width: 30%;
 `;
 
+const rotate360 = keyframes`
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const SpinnerAnimation = styled.div`
+  
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;  
+  border-radius: 50%;
+  border: 1px solid #f6f;
+  border-top-color: #0e0;
+  border-right-color: #0dd;
+  border-bottom-color: #f90;
+  animation: ${rotate360} .6s linear infinite;
+
+  ${props => props.two && css`
+    width: 150px;
+    height:150px;
+    margin-top: -75px;
+    animation: ${rotate360} .8s linear infinite;
+    animation-direction: reverse;
+  `}
+  ${props => props.three && css`
+    width: 200px;
+    height:200px;
+    margin-top: -100px;
+    animation: ${rotate360} 1s linear infinite;
+  `}
+  ${props => props.four && css`
+    width: 250px;
+    height:250px;
+    margin-top: -125px;
+    animation: ${rotate360} 1.2s linear infinite;
+    animation-direction: reverse;
+  `}
+  ${props => props.five && css`
+    width: 300px;
+    height:300px;
+    margin-top: -150px;
+    animation: ${rotate360} 1.4s linear infinite;
+  `}
+`;
+
+
+
 export {
   PageWrapper,
   InputWrapper,
@@ -77,5 +129,6 @@ export {
   GreetingWrapper,
   GreetingText,
   ContentCardWrapper,
-  ContentCard
+  ContentCard,
+  SpinnerAnimation
 };

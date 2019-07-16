@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import { PageWrapper } from "../styles/styles";
+import { PageWrapper, SpinnerAnimation } from "../styles/styles";
 
 class Spinner extends Component {
   render() {
-    return <PageWrapper>Loading...</PageWrapper>;
+    return (
+      <PageWrapper>
+        <SpinnerAnimation />
+      </PageWrapper >
+    )
   }
 }
 

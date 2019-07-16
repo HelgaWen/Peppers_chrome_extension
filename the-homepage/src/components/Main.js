@@ -20,11 +20,11 @@ class Main extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.getName();
-    }, 100);
+    }, 200000);
   }
 
   setName = name => {
-    chrome.storage.sync.set({ name: name }, function() {
+    chrome.storage.sync.set({ name: name }, function () {
       console.log("Name is set to  " + name);
     });
   };
@@ -59,7 +59,9 @@ class Main extends Component {
           <Form handleSubmit={this.handleSubmit} inputName={this.inputName} />
         );
       default:
-        return <Spinner />;
+        return <PageWrapper>
+          <Spinner />
+        </PageWrapper>;
     }
   }
 }
