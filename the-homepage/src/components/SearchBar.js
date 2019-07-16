@@ -3,7 +3,8 @@ import {
   PageWrapper,
   SearchPlatform,
   SearchInput,
-  SearchDropdown
+  SearchDropdown,
+  SearchWrapper
 } from "../styles/styles";
 
 class SearchBar extends Component {
@@ -56,7 +57,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <PageWrapper>
+      <SearchWrapper>
         <SearchPlatform onClick={this.toggleDropdown}>
           {this.state.engine}
         </SearchPlatform>
@@ -78,7 +79,7 @@ class SearchBar extends Component {
             required
           />
         </form>
-      </PageWrapper>
+      </SearchWrapper>
     );
   }
 }

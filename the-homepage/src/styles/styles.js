@@ -91,17 +91,34 @@ const SpinnerAnimation = styled.div`
   animation: ${rotate360} 0.6s linear infinite;
 `;
 
-const SearchInput = styled.input`
+const SearchWrapper = styled.div`
+  display:flex;
+  justify-content:flex-start;
+  margin: 20px 0; 
+  width:70%;
   border: 1px solid black;
-  width: 70%;
+`;
+
+const SearchInput = styled.input`
+  font-size: 16px;
+  font-weight: 400;
+  padding-left: 20px;
+  outline:none;
+  background-color: transparent;
+  border: 0 solid;
+  height:85%;
+  overflow: hidden;
+  max-width:70%;
 `;
 
 const SearchPlatform = styled.button`
-  background-color: #4caf50;
-  color: white;
+width: 30%;
+  background-color: #fff;
+  color: black;
   padding: 16px;
   font-size: 16px;
-  border: none;
+  outline:none;
+  border-right: 1px solid black;
   cursor: pointer;
 `;
 
@@ -130,6 +147,7 @@ export {
   ContentCardWrapper,
   ContentCard,
   SpinnerAnimation,
+  SearchWrapper,
   SearchInput,
   SearchPlatform,
   SearchDropdown
