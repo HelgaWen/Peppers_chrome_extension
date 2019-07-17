@@ -4,7 +4,8 @@ import {
   SearchPlatform,
   SearchInput,
   SearchDropdown,
-  SearchWrapper
+  SearchWrapper,
+  SearchButton
 } from "../styles/styles";
 
 class SearchBar extends Component {
@@ -62,15 +63,15 @@ class SearchBar extends Component {
           {this.state.engine}
         </SearchPlatform>
         <SearchDropdown show={this.state.isVisible}>
-          <button title="google" onClick={this.setEngine}>
+          <SearchButton title="google" onClick={this.setEngine}>
             Google
-          </button>
-          <button title="youtube" onClick={this.setEngine}>
+        </SearchButton>
+          <SearchButton title="youtube" onClick={this.setEngine}>
             Youtube
-          </button>
-          <button title="wikipedia" onClick={this.setEngine}>
+        </SearchButton>
+          <SearchButton title="wikipedia" onClick={this.setEngine}>
             Wikipedia
-          </button>
+        </SearchButton>
         </SearchDropdown>
         <form onSubmit={this.redirect}>
           <SearchInput

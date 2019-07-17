@@ -95,10 +95,24 @@ const SpinnerAnimation = styled.div`
 
 const SearchWrapper = styled.div`
   display: flex;
-  justify-content: flex-start;
   margin: 20px 0;
   width: 70%;
   border: 1px solid black;
+`;
+
+const SearchButton = styled.button`
+  border:none;
+  outline:none;
+  width: 30%;
+  background-color: transparent;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lightgrey;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -106,7 +120,6 @@ const SearchInput = styled.input`
   font-weight: 400;
   padding-left: 20px;
   outline: none;
-
   background-color: transparent;
   border: 0 solid;
   height: 85%;
@@ -116,17 +129,19 @@ const SearchInput = styled.input`
 
 const SearchPlatform = styled.button`
   width: 30%;
-  background-color: #fff;
+  background-color: transparent;
   color: black;
   padding: 16px;
   font-size: 16px;
   outline: none;
+  border:none;
   border-right: 1px solid black;
   cursor: pointer;
 `;
 
 const SearchDropdown = styled.div`
   position: absolute;
+  width: 30%;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -136,7 +151,8 @@ const SearchDropdown = styled.div`
   ${props =>
     props.show &&
     css`
-      display: block;
+      display: flex;
+      flex-direction: column;
     `}
 `;
 
@@ -151,6 +167,7 @@ export {
   ContentCard,
   SpinnerAnimation,
   SearchWrapper,
+  SearchButton,
   SearchInput,
   SearchPlatform,
   SearchDropdown
