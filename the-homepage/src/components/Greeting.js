@@ -1,6 +1,6 @@
 /* global chrome*/
 import React, { Component } from "react";
-import { PageWrapper, GreetingText, GreetingWrapper } from "../styles/styles";
+import { GreetingText, GreetingWrapper } from "../styles/styles";
 
 class Greeting extends Component {
   render() {
