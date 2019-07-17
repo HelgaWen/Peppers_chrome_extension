@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import { ContentCard, GreetingText } from "../styles/styles";
-
-
+import { ContentCard } from "../styles/general";
 class SL extends Component {
 
   render() {
     return (
       <ContentCard>
-        <GreetingText>I am SL</GreetingText>
+        <h1>I am SL</h1>
       </ContentCard>
     );
   }

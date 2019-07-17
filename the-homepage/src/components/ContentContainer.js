@@ -1,5 +1,5 @@
 import React from "react";
-import { ContentCardWrapper } from "../styles/styles";
+import { ContentCardWrapper } from "../styles/contentContainer";
 import SL from "./Sl";
 import Todo from "./Todo";
 

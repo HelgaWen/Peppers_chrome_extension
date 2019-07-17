@@ -1,5 +1,6 @@
 import React from "react";
-import { PageWrapper, SpinnerAnimation } from "../styles/styles";
+import { PageWrapper } from "../styles/general";
+import { SpinnerAnimation } from "../styles/spinner";
 
 function Spinner() {
   return (

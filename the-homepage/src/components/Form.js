@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import {
-  PageWrapper,
   InputWrapper,
   InputLabel,
   NameInput
-} from "../styles/styles";
+} from "../styles/form";
+import { PageWrapper } from "../styles/general";
 
 class Form extends Component {
   render() {

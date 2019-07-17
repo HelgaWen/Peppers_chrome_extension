@@ -6,7 +6,7 @@ import {
   SearchWrapper,
   SearchButton,
   TempDiv
-} from "../styles/styles";
+} from "../styles/searchBar";
 
 class SearchBar extends Component {
   state = {
@@ -43,13 +43,11 @@ class SearchBar extends Component {
   };
 
   redirect = event => {
-    console.log("redirect");
     event.preventDefault();
     window.location = this.state.path + this.searchString.current.value;
   };
 
   toggleDropdown = event => {
-    console.log("toggleDropDown");
     if (event) event.preventDefault();
     this.state.isVisible
       ? this.setState({ isVisible: false })
@@ -77,7 +75,7 @@ class SearchBar extends Component {
         </TempDiv>
         <form onSubmit={this.redirect}>
           <SearchInput
-            placeholder="Enter search keyword"
+            placeholder="Enter search"
             ref={this.searchString}
             required
           />
