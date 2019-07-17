@@ -5,6 +5,7 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: black;
 `;
 
 const NameInput = styled.input`
@@ -45,7 +46,7 @@ const GreetingWrapper = styled.div`
 const GreetingText = styled.p`
   font-size: 1.5rem;
   font-weight: 400;
-  color: rebeccapurple;
+  color: black;
 `;
 
 const ContentCardWrapper = styled.div`

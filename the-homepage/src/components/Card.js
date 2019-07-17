@@ -7,7 +7,7 @@ class Card extends Component {
   render() {
     return (
       <ContentCard>
-        <GreetingText>Hello</GreetingText>
+        <GreetingText>I am a card</GreetingText>
       </ContentCard>
     );
   }
