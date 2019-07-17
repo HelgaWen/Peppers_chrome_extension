@@ -1,4 +1,5 @@
 /* global chrome*/
+
 import React from 'react';
 
 function ResetButton() {
@@ -10,6 +11,8 @@ function ResetButton() {
                 console.error(error);
             }
         });
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
     }
 
     return (
