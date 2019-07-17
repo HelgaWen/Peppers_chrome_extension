@@ -6,6 +6,7 @@ import Spinner from "./Spinner";
 import ContentContainer from "./ContentContainer";
 import { PageWrapper } from "../styles/styles";
 import SearchBar from "./SearchBar";
+import ResetChrome from './ResetChrome';
 
 class Main extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class Main extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.getName();
-    }, 100);
+    }, 1000);
   }
 
   setName = name => {
@@ -51,6 +52,7 @@ class Main extends Component {
       case true:
         return (
           <PageWrapper>
+            <ResetChrome />
             <Greeting name={this.state.name} />
             <SearchBar />
             <ContentContainer />
