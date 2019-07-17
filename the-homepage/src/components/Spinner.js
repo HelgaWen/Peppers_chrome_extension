@@ -6,7 +6,7 @@ class Spinner extends Component {
     return (
       <PageWrapper>
         <SpinnerAnimation />
-      </PageWrapper >
+      </PageWrapper>
     )
   }
 }
