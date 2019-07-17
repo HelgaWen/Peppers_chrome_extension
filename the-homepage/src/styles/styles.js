@@ -89,6 +89,7 @@ const SpinnerAnimation = styled.div`
   border-right-color: #0dd;
   border-bottom-color: #f90;
   animation: ${rotate360} 0.6s linear infinite;
+
 `;
 
 const SearchWrapper = styled.div`
