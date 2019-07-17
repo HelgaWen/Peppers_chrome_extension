@@ -20,7 +20,7 @@ class Main extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.getName();
-    }, 1000);
+    }, 100);
   }
 
   setName = name => {
@@ -34,6 +34,8 @@ class Main extends Component {
       console.log("Name currently is " + result.name);
       if (result.name) {
         this.setState({ name: result.name, nameExist: true });
+      } else {
+        this.setState({ nameExist: false });
       }
     });
   };
