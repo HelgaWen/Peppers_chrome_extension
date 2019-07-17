@@ -45,7 +45,7 @@ const GreetingWrapper = styled.div`
 const GreetingText = styled.p`
   font-size: 1.5rem;
   font-weight: 400;
-  color: rebeccapurple;
+  color: black;
 `;
 
 const ContentCardWrapper = styled.div`
@@ -89,7 +89,6 @@ const SpinnerAnimation = styled.div`
   border-right-color: #0dd;
   border-bottom-color: #f90;
   animation: ${rotate360} 0.6s linear infinite;
-
 `;
 
 const SearchWrapper = styled.div`
