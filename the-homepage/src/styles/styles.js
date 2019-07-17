@@ -95,15 +95,16 @@ const SpinnerAnimation = styled.div`
 
 const SearchWrapper = styled.div`
   display: flex;
+  position:relative;
   margin: 20px 0;
-  width: 70%;
+  width: 70%;  
   border: 1px solid black;
 `;
 
 const SearchButton = styled.button`
   border:none;
   outline:none;
-  width: 30%;
+  width: 100%;
   background-color: transparent;
   color: black;
   padding: 16px;
@@ -111,6 +112,7 @@ const SearchButton = styled.button`
   cursor: pointer;
 
   &:hover {
+
     background-color: lightgrey;
   }
 `;
@@ -125,10 +127,11 @@ const SearchInput = styled.input`
   height: 85%;
   overflow: hidden;
   max-width: 100%;
+  float: left;
 `;
 
-const SearchPlatform = styled.button`
-  width: 30%;
+const SearchPlatformBtn = styled.button`
+  width: 100%;
   background-color: transparent;
   color: black;
   padding: 16px;
@@ -141,12 +144,12 @@ const SearchPlatform = styled.button`
 
 const SearchDropdown = styled.div`
   position: absolute;
+  margin-top: 51px;
   width: 30%;
-  background-color: #f9f9f9;
+  background-color: white;
+  border: 1px solid black;
+  border-top: 0;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 12px 16px;
-  z-index: 1;
   display: none;
   ${props =>
     props.show &&
@@ -154,6 +157,16 @@ const SearchDropdown = styled.div`
       display: flex;
       flex-direction: column;
     `}
+  ${'' /* ${SearchPlatformBtn}:hover{
+    display: flex;
+    flex-direction: column;
+  } */}
+`;
+
+const TempDiv = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction:column;
 `;
 
 export {
@@ -169,6 +182,7 @@ export {
   SearchWrapper,
   SearchButton,
   SearchInput,
-  SearchPlatform,
-  SearchDropdown
+  SearchPlatformBtn,
+  SearchDropdown,
+  TempDiv
 };

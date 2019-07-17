@@ -1,17 +1,14 @@
 import React, { Component } from "react";
-import { ContentCardWrapper, ContentCard } from "../styles/styles";
-import Card from "./Card";
+import { ContentCardWrapper } from "../styles/styles";
+import SL from "./Sl";
+import Todo from "./Todo";
 
 class ContentContainer extends Component {
   render() {
     return (
       <ContentCardWrapper>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <SL />
+        <Todo />
       </ContentCardWrapper>
     );
   }

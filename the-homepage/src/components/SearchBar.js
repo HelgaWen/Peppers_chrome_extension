@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import {
   PageWrapper,
-  SearchPlatform,
+  SearchPlatformBtn,
   SearchInput,
   SearchDropdown,
   SearchWrapper,
-  SearchButton
+  SearchButton,
+  TempDiv
 } from "../styles/styles";
 
 class SearchBar extends Component {
@@ -59,20 +60,22 @@ class SearchBar extends Component {
   render() {
     return (
       <SearchWrapper>
-        <SearchPlatform onClick={this.toggleDropdown}>
-          {this.state.engine}
-        </SearchPlatform>
-        <SearchDropdown show={this.state.isVisible}>
-          <SearchButton title="google" onClick={this.setEngine}>
-            Google
+        <TempDiv>
+          <SearchPlatformBtn onClick={this.toggleDropdown}>
+            {this.state.engine}
+          </SearchPlatformBtn>
+          <SearchDropdown show={this.state.isVisible}>
+            <SearchButton title="google" onClick={this.setEngine}>
+              Google
         </SearchButton>
-          <SearchButton title="youtube" onClick={this.setEngine}>
-            Youtube
+            <SearchButton title="youtube" onClick={this.setEngine}>
+              Youtube
         </SearchButton>
-          <SearchButton title="wikipedia" onClick={this.setEngine}>
-            Wikipedia
+            <SearchButton title="wikipedia" onClick={this.setEngine}>
+              Wikipedia
         </SearchButton>
-        </SearchDropdown>
+          </SearchDropdown>
+        </TempDiv>
         <form onSubmit={this.redirect}>
           <SearchInput
             placeholder="Enter search keyword"

@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { ContentCard, GreetingText } from "../styles/styles";
-const apiKey = process.env.REACT_APP_API_KEY;
 
-class Card extends Component {
+
+class SL extends Component {
 
   render() {
     return (
       <ContentCard>
-        <GreetingText>I am a card</GreetingText>
+        <GreetingText>I am SL</GreetingText>
       </ContentCard>
     );
   }
 }
 
-export default Card;
+export default SL;
