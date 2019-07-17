@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const SearchWrapper = styled.div`
   display: flex;
-  position:relative;
+  ${'' /* position:relative; */}
   margin: 20px 0;
   width: 70%;  
   border: 1px solid black;
@@ -46,27 +46,32 @@ const SearchPlatformBtn = styled.button`
   border:none;
   border-right: 1px solid black;
   cursor: pointer;
+  position: relative;
+
+  &:hover {
+    > div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 `;
 
 const SearchDropdown = styled.div`
   position: absolute;
-  margin-top: 51px;
   width: 30%;
   background-color: white;
   border: 1px solid black;
   border-top: 0;
   min-width: 160px;
   display: none;
-  ${props =>
-    props.show &&
-    css`
-      display: flex;
-      flex-direction: column;
-    `}
+
+  &:not( :hover ) {
+    display: none;
+  }
 `;
 
 const TempDiv = styled.div`
-  position: relative;
+  ${'' /* position: relative; */}
   display: flex;
   flex-direction:column;
 `;

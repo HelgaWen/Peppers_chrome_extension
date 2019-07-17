@@ -10,7 +10,6 @@ import {
 
 class SearchBar extends Component {
   state = {
-    isVisible: false,
     path: "https://www.google.com/search?q=",
     engine: "Google"
   };
@@ -47,31 +46,24 @@ class SearchBar extends Component {
     window.location = this.state.path + this.searchString.current.value;
   };
 
-  toggleDropdown = event => {
-    if (event) event.preventDefault();
-    this.state.isVisible
-      ? this.setState({ isVisible: false })
-      : this.setState({ isVisible: true });
-  };
-
   render() {
     return (
       <SearchWrapper>
         <TempDiv>
-          <SearchPlatformBtn onClick={this.toggleDropdown}>
+          <SearchPlatformBtn>
             {this.state.engine}
+            <SearchDropdown show={this.state.isVisible}>
+              <SearchButton title="google" onClick={this.setEngine}>
+                Google
+              </SearchButton>
+              <SearchButton title="youtube" onClick={this.setEngine}>
+                Youtube
+              </SearchButton>
+              <SearchButton title="wikipedia" onClick={this.setEngine}>
+                Wikipedia
+              </SearchButton>
+            </SearchDropdown>
           </SearchPlatformBtn>
-          <SearchDropdown show={this.state.isVisible}>
-            <SearchButton title="google" onClick={this.setEngine}>
-              Google
-        </SearchButton>
-            <SearchButton title="youtube" onClick={this.setEngine}>
-              Youtube
-        </SearchButton>
-            <SearchButton title="wikipedia" onClick={this.setEngine}>
-              Wikipedia
-        </SearchButton>
-          </SearchDropdown>
         </TempDiv>
         <form onSubmit={this.redirect}>
           <SearchInput
