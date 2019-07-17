@@ -5,6 +5,7 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: black;
 `;
 
 const NameInput = styled.input`
@@ -93,10 +94,26 @@ const SpinnerAnimation = styled.div`
 
 const SearchWrapper = styled.div`
   display: flex;
-  justify-content: flex-start;
+  position:relative;
   margin: 20px 0;
-  width: 70%;
+  width: 70%;  
   border: 1px solid black;
+`;
+
+const SearchButton = styled.button`
+  border:none;
+  outline:none;
+  width: 100%;
+  background-color: transparent;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+
+    background-color: lightgrey;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -104,38 +121,51 @@ const SearchInput = styled.input`
   font-weight: 400;
   padding-left: 20px;
   outline: none;
-
   background-color: transparent;
   border: 0 solid;
   height: 85%;
   overflow: hidden;
   max-width: 100%;
+  float: left;
 `;
 
-const SearchPlatform = styled.button`
-  width: 30%;
-  background-color: #fff;
+const SearchPlatformBtn = styled.button`
+  width: 100%;
+  background-color: transparent;
   color: black;
   padding: 16px;
   font-size: 16px;
   outline: none;
+  border:none;
   border-right: 1px solid black;
   cursor: pointer;
 `;
 
 const SearchDropdown = styled.div`
   position: absolute;
-  background-color: #f9f9f9;
+  margin-top: 51px;
+  width: 30%;
+  background-color: white;
+  border: 1px solid black;
+  border-top: 0;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 12px 16px;
-  z-index: 1;
   display: none;
   ${props =>
     props.show &&
     css`
-      display: block;
+      display: flex;
+      flex-direction: column;
     `}
+  ${'' /* ${SearchPlatformBtn}:hover{
+    display: flex;
+    flex-direction: column;
+  } */}
+`;
+
+const TempDiv = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction:column;
 `;
 
 export {
@@ -149,7 +179,9 @@ export {
   ContentCard,
   SpinnerAnimation,
   SearchWrapper,
+  SearchButton,
   SearchInput,
-  SearchPlatform,
-  SearchDropdown
+  SearchPlatformBtn,
+  SearchDropdown,
+  TempDiv
 };
