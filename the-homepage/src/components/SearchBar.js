@@ -5,8 +5,10 @@ import {
   SearchDropdown,
   SearchWrapper,
   SearchButton,
-  TempDiv
+  TempDiv,
+  EngineImage
 } from "../styles/styles";
+import google from '../styles/google.png';
 
 class SearchBar extends Component {
   state = {
@@ -61,18 +63,18 @@ class SearchBar extends Component {
       <SearchWrapper>
         <TempDiv>
           <SearchPlatformBtn onClick={this.toggleDropdown}>
-            {this.state.engine}
+            {/* {this.state.engine} */}
           </SearchPlatformBtn>
           <SearchDropdown show={this.state.isVisible}>
             <SearchButton title="google" onClick={this.setEngine}>
-              Google
-        </SearchButton>
+              <EngineImage src={google}></EngineImage>
+            </SearchButton>
             <SearchButton title="youtube" onClick={this.setEngine}>
-              Youtube
-        </SearchButton>
+              <EngineImage src={google}></EngineImage>
+            </SearchButton>
             <SearchButton title="wikipedia" onClick={this.setEngine}>
-              Wikipedia
-        </SearchButton>
+              <EngineImage src={google}></EngineImage>
+            </SearchButton>
           </SearchDropdown>
         </TempDiv>
         <form onSubmit={this.redirect}>

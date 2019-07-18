@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
+import google from './google.png';
 
 const PageWrapper = styled.div`
   width: 100%;
@@ -132,7 +133,10 @@ const SearchInput = styled.input`
 
 const SearchPlatformBtn = styled.button`
   width: 100%;
+  height:100%;
   background-color: transparent;
+  ${'' /* image-size:cover; */}
+  ${'' /* background-image: url(${props => props.url}); */}
   color: black;
   padding: 16px;
   font-size: 16px;
@@ -169,6 +173,13 @@ const TempDiv = styled.div`
   flex-direction:column;
 `;
 
+const EngineImage = styled.img`
+width:100%;
+height:100%;
+  background-repeat: no-repeat;
+  object-fit:cover;
+`;
+
 export {
   PageWrapper,
   InputWrapper,
@@ -184,5 +195,6 @@ export {
   SearchInput,
   SearchPlatformBtn,
   SearchDropdown,
-  TempDiv
+  TempDiv,
+  EngineImage
 };
