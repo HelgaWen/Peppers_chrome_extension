@@ -1,10 +1,16 @@
-import styled, {css, keyframes} from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import clear from './images/shining-sun-mini.png';
+
+const WeatherCardWrapper = styled.div`
+  text-align:center;
+`;
+
 const rotate360 = keyframes`
   to {
     transform: rotate(360deg);
   }
 `;
+
 const WeatherImage = styled.div`
   content: "";
   box-sizing: border-box;
@@ -28,5 +34,6 @@ const WeatherImage = styled.div`
 `;
 
 export {
-    WeatherImage,
+  WeatherImage,
+  WeatherCardWrapper
 }

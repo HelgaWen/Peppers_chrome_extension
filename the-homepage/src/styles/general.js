@@ -17,6 +17,8 @@ display: flex;
 ${props => props.column ? 'flex-direction: column' : 'flex-direction: row'}
   justify-content: center;
   border: 1px solid black;
+  border-radius:7px;
+  padding: 5px;
   margin: 1%;
   max-width: 80%;
   overflow:hidden;

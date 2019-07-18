@@ -1,7 +1,7 @@
 /* global chrome*/
 import React, { Component } from "react";
 import { ContentCard } from "../styles/general";
-import { TodoInput, TodoSubmit, TodoItemsContainer } from '../styles/todoStyles';
+import { TodoInput, TodoSubmit, TodoItemsContainer, TodoForm } from '../styles/todoStyles';
 import Item from './Item'
 
 class Todo extends Component {
@@ -41,12 +41,12 @@ class Todo extends Component {
         let display = [];
         this.allItems.forEach(item => display.push(<Item item={item} />))
         return (
-            <ContentCard>
-                <form onSubmit={this.onSubmit}>
+            <ContentCard column>
+                <TodoForm onSubmit={this.onSubmit}>
                     <TodoInput placeholder="Title" type="text" ref={this.title} />
                     <TodoInput placeholder="Description" type="text" ref={this.description} />
                     <TodoSubmit>Add</TodoSubmit>
-                </form>
+                </TodoForm>
                 <TodoItemsContainer>
                     {display}
                 </TodoItemsContainer>

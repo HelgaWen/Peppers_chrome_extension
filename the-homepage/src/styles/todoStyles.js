@@ -1,8 +1,15 @@
 import styled from "styled-components";
 
+const TodoForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`;
+
 const TodoInput = styled.input`
-  outline:none;       
-  box-shadow: 0 2px 7px black;
+  outline:none;
+  border-color: transparent;
+  border-bottom: 1px solid black;       
   margin: 5px;
    
 `;
@@ -43,6 +50,7 @@ const ItemDescription = styled.p`
 `;
 
 export {
+  TodoForm,
   TodoInput,
   TodoSubmit,
   TodoItemsContainer,
