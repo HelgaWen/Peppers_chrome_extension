@@ -18,7 +18,7 @@ ${props => props.column ? 'flex-direction: column' : 'flex-direction: row'}
   justify-content: center;
   border: 1px solid black;
   margin: 1%;
-  width: 30%;
+  width: 80%;
 `;
 
 export {

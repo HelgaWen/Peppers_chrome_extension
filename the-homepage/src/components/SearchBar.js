@@ -11,6 +11,7 @@ import {
 } from "../styles/searchBar";
 import google from '../styles/google.png';
 import youtube from '../styles/youtube.png';
+import wikipedia from '../styles/wikipedia.png';
 
 class SearchBar extends Component {
   state = {
@@ -65,7 +66,7 @@ class SearchBar extends Component {
                 <EngineImage src={youtube} />
               </SearchButton>
               <SearchButton title="wikipedia" onClick={this.setEngine}>
-                <EngineImage src={google} />
+                <EngineImage src={wikipedia} />
               </SearchButton>
             </SearchDropdown>
           </SearchEngine>
