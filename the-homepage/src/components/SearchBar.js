@@ -7,12 +7,11 @@ import {
   SearchButton,
   TempDiv,
   EngineImage
-} from "../styles/styles";
+} from "../styles/searchBar";
 import google from '../styles/google.png';
 
 class SearchBar extends Component {
   state = {
-    isVisible: false,
     path: "https://www.google.com/search?q=",
     engine: "Google"
   };
@@ -45,17 +44,8 @@ class SearchBar extends Component {
   };
 
   redirect = event => {
-    console.log("redirect");
     event.preventDefault();
     window.location = this.state.path + this.searchString.current.value;
-  };
-
-  toggleDropdown = event => {
-    console.log("toggleDropDown");
-    if (event) event.preventDefault();
-    this.state.isVisible
-      ? this.setState({ isVisible: false })
-      : this.setState({ isVisible: true });
   };
 
   render() {
@@ -79,7 +69,7 @@ class SearchBar extends Component {
         </TempDiv>
         <form onSubmit={this.redirect}>
           <SearchInput
-            placeholder="Enter search keyword"
+            placeholder="Enter search"
             ref={this.searchString}
             required
           />

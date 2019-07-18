@@ -4,7 +4,7 @@ import Greeting from "./Greeting";
 import Form from "./Form";
 import Spinner from "./Spinner";
 import ContentContainer from "./ContentContainer";
-import { PageWrapper } from "../styles/styles";
+import { PageWrapper } from "../styles/general";
 import SearchBar from "./SearchBar";
 import ResetChrome from './ResetChrome';
 
