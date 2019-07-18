@@ -24,13 +24,12 @@ class SL extends Component {
   getInformationOfYourPersonallyChosenOriginAndDestinationFromYourChromeStorage = () => {
     chrome.storage.sync.get(["SL"], info => {
       if (info.SL) {
-        this.setState(prevstate => ({
+        this.setState({
           SL: { 
-              ...prevstate.SL,
               origin: info.SL.origin,
               destination: info.SL.destination
             }
-          }))
+          })
       } else {
         this.setState({ hasSlInfo: false });
       }
@@ -45,10 +44,12 @@ class SL extends Component {
 
   onSubmit = event => {
     event.preventDefault();
+    const checkOrigin = this.inputOrigin.current.value === '' ? this.state.SL.origin : this.inputOrigin.current.value;
+    const checkDestination = this.inputDestination.current.value === '' ? this.state.SL.destination : this.inputDestination.current.value;
     this.setState({
       SL: { 
-          origin: this.inputOrigin.current.value,
-          destination: this.inputDestination.current.value
+          origin: checkOrigin,
+          destination: checkDestination
         }
       }, () => {
         this.setInformationOfYourPersonallyChosenOriginAndDestinationFromYourChromeStorage();
