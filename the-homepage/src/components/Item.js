@@ -1,9 +1,12 @@
 import React from "react";
-
+import { TodoItem, ItemTitle, ItemDescription } from '../styles/todoStyles';
 function Item({ item }) {
-
-    return (<div><p>{item.title}</p>
-        <p>{item.desc}</p></div>);
+  return (
+    <TodoItem>
+      <ItemTitle>{item.title}</ItemTitle>
+      <ItemDescription>{item.desc}</ItemDescription>
+    </TodoItem>
+  );
 }
 
 export default Item;

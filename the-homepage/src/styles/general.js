@@ -10,10 +10,12 @@ const PageWrapper = styled.div`
 
 const ContentCard = styled.div`
   display: flex;
+  flex-direction:column;    
   justify-content: center;
   border: 1px solid black;
   margin: 1%;
-  width: 30%;
+  max-width: 80%;
+  overflow:hidden;
 `;
 
 export {
