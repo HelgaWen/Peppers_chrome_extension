@@ -9,9 +9,9 @@ import {
   EngineImage,
   SearchEngineContainer
 } from "../styles/searchBar";
-import google from '../styles/google.png';
-import youtube from '../styles/youtube.png';
-import wikipedia from '../styles/wikipedia.png';
+import google from '../styles/images/google.png';
+import youtube from '../styles/images/youtube.png';
+import wikipedia from '../styles/images/wikipedia.png';
 
 class SearchBar extends Component {
   state = {
