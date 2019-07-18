@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+// * {
+//   box-sizing: border-box;
+// }
+
 const PageWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -9,8 +13,8 @@ const PageWrapper = styled.div`
 `;
 
 const ContentCard = styled.div`
-  display: flex;
-  flex-direction:column;    
+display: flex;
+${props => props.column ? 'flex-direction: column' : 'flex-direction: row'}
   justify-content: center;
   border: 1px solid black;
   margin: 1%;
