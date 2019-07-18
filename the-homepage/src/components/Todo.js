@@ -1,6 +1,7 @@
 /* global chrome*/
 import React, { Component } from "react";
 import { ContentCard } from "../styles/general";
+import { TodoInput } from '../styles/todoStyles';
 import Item from './Item'
 
 class Todo extends Component {
@@ -33,8 +34,7 @@ class Todo extends Component {
                 console.log(result.items.obj);
                 this.setState({ render: true });
             }
-        }
-        )
+        })
     }
 
     render() {
@@ -43,8 +43,8 @@ class Todo extends Component {
         return (
             <ContentCard>
                 <form onSubmit={this.onSubmit}>
-                    <input placeholder="Title" type="text" ref={this.title} />
-                    <input placeholder="Description" type="text" ref={this.description} />
+                    <TodoInput placeholder="Title" type="text" ref={this.title} />
+                    <TodoInput placeholder="Description" type="text" ref={this.description} />
                     <button>Add</button>
                 </form>
                 <div>

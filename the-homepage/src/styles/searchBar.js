@@ -36,16 +36,12 @@ const SearchInput = styled.input`
   float: left;
 `;
 
-const SearchPlatformBtn = styled.button`
+const SearchEngine = styled.div`
   width: 100%;
   background-color: transparent;
-  color: black;
-  padding: 16px;
-  font-size: 16px;
   outline: none;
   border:none;
   border-right: 1px solid black;
-  cursor: pointer;
   position: relative;
 
   &:hover {
@@ -62,6 +58,8 @@ const SearchDropdown = styled.div`
   background-color: white;
   border: 1px solid black;
   border-top: 0;
+  margin-left: -13px;
+  margin-top:13px;
   min-width: 160px;
   display: none;
 
@@ -70,26 +68,31 @@ const SearchDropdown = styled.div`
   }
 `;
 
-const TempDiv = styled.div`
+const DropdownContainer = styled.div`
   ${'' /* position: relative; */}
   display: flex;
   flex-direction:column;
 `;
 
 const EngineImage = styled.img`
-width:100%;
-height:100%;
+  width:100%;
+  height:100%;
   background-repeat: no-repeat;
   object-fit:cover;
 `;
 
+const SearchEngineContainer = styled.div`
+  width:100px;
+  height:50px;
+`;
 
 export {
   SearchWrapper,
-  SearchPlatformBtn,
+  SearchEngine,
   SearchInput,
   SearchDropdown,
   SearchButton,
-  TempDiv,
-  EngineImage
+  DropdownContainer,
+  EngineImage,
+  SearchEngineContainer
 }

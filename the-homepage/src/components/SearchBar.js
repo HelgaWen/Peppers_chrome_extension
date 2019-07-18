@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import {
-  SearchPlatformBtn,
+  SearchEngine,
   SearchInput,
   SearchDropdown,
   SearchWrapper,
   SearchButton,
-  TempDiv,
-  EngineImage
+  DropdownContainer,
+  EngineImage,
+  SearchEngineContainer
 } from "../styles/searchBar";
 import google from '../styles/google.png';
+import youtube from '../styles/youtube.png';
 
 class SearchBar extends Component {
   state = {
@@ -40,7 +42,6 @@ class SearchBar extends Component {
           path: "https://www.google.com/search?q="
         });
     }
-    this.toggleDropdown();
   };
 
   redirect = event => {
@@ -51,22 +52,24 @@ class SearchBar extends Component {
   render() {
     return (
       <SearchWrapper>
-        <TempDiv>
-          <SearchPlatformBtn onClick={this.toggleDropdown}>
-            {/* {this.state.engine} */}
-          </SearchPlatformBtn>
-          <SearchDropdown show={this.state.isVisible}>
-            <SearchButton title="google" onClick={this.setEngine}>
-              <EngineImage src={google}></EngineImage>
-            </SearchButton>
-            <SearchButton title="youtube" onClick={this.setEngine}>
-              <EngineImage src={google}></EngineImage>
-            </SearchButton>
-            <SearchButton title="wikipedia" onClick={this.setEngine}>
-              <EngineImage src={google}></EngineImage>
-            </SearchButton>
-          </SearchDropdown>
-        </TempDiv>
+        <DropdownContainer>
+          <SearchEngine>
+            <SearchEngineContainer>
+              <EngineImage src={google} />
+            </SearchEngineContainer>
+            <SearchDropdown>
+              <SearchButton title="google" onClick={this.setEngine}>
+                <EngineImage src={google} />
+              </SearchButton>
+              <SearchButton title="youtube" onClick={this.setEngine}>
+                <EngineImage src={youtube} />
+              </SearchButton>
+              <SearchButton title="wikipedia" onClick={this.setEngine}>
+                <EngineImage src={google} />
+              </SearchButton>
+            </SearchDropdown>
+          </SearchEngine>
+        </DropdownContainer>
         <form onSubmit={this.redirect}>
           <SearchInput
             placeholder="Enter search"
