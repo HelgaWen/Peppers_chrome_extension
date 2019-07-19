@@ -4,6 +4,8 @@ const TodoForm = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-shadow: 0 5px 6px -6px black;
+    padding-bottom: 2px;
 `;
 
 const TodoInput = styled.input`
@@ -17,6 +19,7 @@ const TodoInput = styled.input`
 const TodoSubmit = styled.button`
   outline:none;
   border: 1px solid orange;
+  border-radius: 4px;
   align-self:center;
   width: 70%;
 `;
@@ -38,8 +41,7 @@ const TodoItemsContainer = styled.div`
 
 const TodoItem = styled.div`
   text-align: center;
-  border-bottom: 1px solid orange;
-  padding-bottom: 2px;
+  box-shadow: 0 5px 6px -6px black;
   padding-right:5px;
   word-wrap:break-word;
 `;
