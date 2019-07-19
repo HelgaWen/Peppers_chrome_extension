@@ -1,17 +1,15 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-const SearchWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
-  ${'' /* position:relative; */}
   margin: 20px 0;
   padding:5px;
   width: 70%;  
-  ${'' /* border: 1px solid black; */}
   border-radius: 7px;
   box-shadow: 2px 2px 7px black;
 `;
 
-const SearchButton = styled.button`
+const Button = styled.button`
   border:none;
   outline:none;
   width: 100%;
@@ -26,7 +24,7 @@ const SearchButton = styled.button`
   }
 `;
 
-const SearchInput = styled.input`
+const Input = styled.input`
   font-size: 16px;
   font-weight: 400;
   padding-left: 20px;
@@ -39,7 +37,7 @@ const SearchInput = styled.input`
   float: left;
 `;
 
-const SearchEngine = styled.div`
+const Engine = styled.div`
   width: 100%;
   background-color: transparent;
   outline: none;
@@ -53,14 +51,12 @@ const SearchEngine = styled.div`
       flex-direction: column;
     }
   }
-  
 `;
 
-const SearchDropdown = styled.div`
+const Dropdown = styled.div`
   position: absolute;
   width: 30%;
   background-color: white;
-  ${'' /* border: 1px solid black; */}
   box-shadow: 0 2px 7px black;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
@@ -77,19 +73,18 @@ const SearchDropdown = styled.div`
 `;
 
 const DropdownContainer = styled.div`
-  ${'' /* position: relative; */}
   display: flex;
   flex-direction:column;
 `;
 
-const EngineImage = styled.img`
+const Image = styled.img`
   width:100%;
   height:100%;
   background-repeat: no-repeat;
   object-fit:cover;
 `;
 
-const SearchEngineContainer = styled.div`
+const EngineContainer = styled.div`
   width:150px;
   height:50px;
   background-repeat: no-repeat;
@@ -97,12 +92,12 @@ const SearchEngineContainer = styled.div`
 `;
 
 export {
-  SearchWrapper,
-  SearchEngine,
-  SearchInput,
-  SearchDropdown,
-  SearchButton,
+  Wrapper,
+  Engine,
+  Input,
+  Dropdown,
+  Button,
   DropdownContainer,
-  EngineImage,
-  SearchEngineContainer
+  Image,
+  EngineContainer
 }
