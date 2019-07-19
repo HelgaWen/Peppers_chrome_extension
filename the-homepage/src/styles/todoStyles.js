@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-const TodoForm = styled.form`
+const Form = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
 `;
 
-const TodoInput = styled.input`
+const Input = styled.input`
   outline:none;
   border-color: transparent;
   border-bottom: 1px solid black;       
@@ -14,14 +14,14 @@ const TodoInput = styled.input`
    
 `;
 
-const TodoSubmit = styled.button`
+const Submit = styled.button`
   outline:none;
   border: 1px solid orange;
   align-self:center;
   width: 70%;
 `;
 
-const TodoItemsContainer = styled.div`
+const ItemsContainer = styled.div`
   display:inline-block;
   flex-direction: column;
   justify-content: center;
@@ -55,10 +55,10 @@ const ItemDescription = styled.p`
 `;
 
 export {
-  TodoForm,
-  TodoInput,
-  TodoSubmit,
-  TodoItemsContainer,
+  Form,
+  Input,
+  Submit,
+  ItemsContainer,
   TodoItem,
   ItemTitle,
   ItemDescription

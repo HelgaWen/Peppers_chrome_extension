@@ -1,27 +1,35 @@
 /* global chrome*/
 import React, { Component } from "react";
 import { ContentCard } from "../styles/general";
-import { TodoInput, TodoSubmit, TodoItemsContainer, TodoForm } from '../styles/todoStyles';
+import { Input, Submit, ItemsContainer, Form } from '../styles/todoStyles';
 import Item from './Item'
 
 class Todo extends Component {
-    title = React.createRef();
-    description = React.createRef();
-    allItems = [];
-    state = { render: false };
+    constructor(props) {
+        super(props);
+        this.state = {
+            items: []
+        }
+        this.title = React.createRef();
+        this.description = React.createRef();
+        this.deleteItem = this.deleteItem.bind(this);
+    }
 
-    componentDidMount() { this.getItemsFromStorage() }
+    componentDidMount() { 
+        this.getItemsFromStorage() 
+    }
 
     onSubmit = event => {
         event.preventDefault()
-        this.allItems.push({ title: this.title.current.value, desc: this.description.current.value, key: Date.now() });
-        this.setItemInStorage();
+        const newItem = { title: this.title.current.value, desc: this.description.current.value, key: Date.now() };
+        this.setState({ items: [...this.state.items, newItem]}, () => {
+            this.setItemInStorage(); 
+        });
         event.target.reset();
-        this.setState({ render: true });
     }
 
     setItemInStorage = () => {
-        let obj = [...this.allItems]
+        let obj = [...this.state.items]
         chrome.storage.sync.set({ items: { obj } }, () => {
             console.log('Sent ', obj, ' to storage');
         });
@@ -30,32 +38,30 @@ class Todo extends Component {
     getItemsFromStorage = () => {
         chrome.storage.sync.get(['items'], result => {
             if (result.items) {
-                this.allItems = result.items.obj;
-                console.log(result.items.obj);
-                this.setState({ render: true });
+                this.setState({ items: result.items.obj});
             }
         })
     }
 
-    deleteItem = (event) => {
-        event.preventDefault();
-        this.allItems.find(item => {
-            console.log(event.target);
-        })
+    deleteItem = itemId => {
+        this.setState({ items: this.state.items.filter((el, index) => index !== itemId) }, () => {
+            this.setItemInStorage();
+        });
     }
+    
     render() {
         let display = [];
-        this.allItems.forEach(item => display.push(<Item item={item} />))
+        this.state.items.forEach((item, index) => display.push(<Item id={index} item={item} deleteItem={this.deleteItem}/>))
         return (
             <ContentCard column>
-                <TodoForm onSubmit={this.onSubmit}>
-                    <TodoInput placeholder="Title" type="text" ref={this.title} required />
-                    <TodoInput placeholder="Description" type="text" ref={this.description} />
-                    <TodoSubmit>Add</TodoSubmit>
-                </TodoForm>
-                <TodoItemsContainer>
+                <Form onSubmit={this.onSubmit}>
+                    <Input placeholder="Title" type="text" ref={this.title} required />
+                    <Input placeholder="Description" type="text" ref={this.description} />
+                    <Submit>Add</Submit>
+                </Form>
+                <ItemsContainer>
                     {display}
-                </TodoItemsContainer>
+                </ItemsContainer>
             </ContentCard>
         );
     }
