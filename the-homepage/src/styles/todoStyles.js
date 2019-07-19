@@ -22,13 +22,18 @@ const TodoSubmit = styled.button`
 `;
 
 const TodoItemsContainer = styled.div`
-  display:flex;
+  display:inline-block;
   flex-direction: column;
   justify-content: center;
   background-color:transparent;
+  max-height:200px;
   width: 100%;
-  overflow:scroll;
-  max-height:200px
+  overflow-x:hidden;
+  overflow-y:scroll;
+  ::-webkit-scrollbar{
+    background:transparent;
+    width: 0;
+  }
 `;
 
 const TodoItem = styled.div`

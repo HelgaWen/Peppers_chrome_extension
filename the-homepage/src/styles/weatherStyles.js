@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-
+import clearsky from '../styles/images/weather/clearsky.png';
 const WeatherCardWrapper = styled.div`
   text-align:center;
 `;
@@ -17,14 +17,16 @@ const WeatherImage = styled.div`
   height: 156px;
   margin: 5px;
   padding:5px;
-  ${'' /* animation: ${rotate360} 0.6s linear infinite; */}
 
   ${props => props.weather && css`
     border: 0;
     background-repeat: no-repeat;
     object-fit:fit;
     background-image: url(${props.weather});
-    ${'' /* animation: ${rotate360} 25s linear infinite; */}
+`}
+
+  ${props => props.weather === clearsky && css`
+    animation: ${rotate360} 25s linear infinite;
   `}
 `;
 

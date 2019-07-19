@@ -14,7 +14,7 @@ class Todo extends Component {
 
     onSubmit = event => {
         event.preventDefault()
-        this.allItems.push({ title: this.title.current.value, desc: this.description.current.value });
+        this.allItems.push({ title: this.title.current.value, desc: this.description.current.value, key: Date.now() });
         this.setItemInStorage();
         event.target.reset();
         this.setState({ render: true });
@@ -37,13 +37,19 @@ class Todo extends Component {
         })
     }
 
+    deleteItem = (event) => {
+        event.preventDefault();
+        this.allItems.find(item => {
+            console.log(event.target);
+        })
+    }
     render() {
         let display = [];
         this.allItems.forEach(item => display.push(<Item item={item} />))
         return (
             <ContentCard column>
                 <TodoForm onSubmit={this.onSubmit}>
-                    <TodoInput placeholder="Title" type="text" ref={this.title} />
+                    <TodoInput placeholder="Title" type="text" ref={this.title} required />
                     <TodoInput placeholder="Description" type="text" ref={this.description} />
                     <TodoSubmit>Add</TodoSubmit>
                 </TodoForm>

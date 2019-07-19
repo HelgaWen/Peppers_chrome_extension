@@ -21,6 +21,7 @@ class SearchBar extends Component {
 
   searchString = React.createRef();
 
+
   setEngine = event => {
     event.preventDefault();
     console.log("selected engine ", event.target.title);
@@ -43,6 +44,7 @@ class SearchBar extends Component {
           path: "https://www.google.com/search?q="
         });
     }
+
   };
 
   redirect = event => {
@@ -58,7 +60,7 @@ class SearchBar extends Component {
             <SearchEngineContainer>
               <EngineImage src={this.state.engine} />
             </SearchEngineContainer>
-            <SearchDropdown>
+            <SearchDropdown >
               <SearchButton title="google" onClick={this.setEngine}>
                 <EngineImage src={google} title="google" onClick={this.setEngine} />
               </SearchButton>

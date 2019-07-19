@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const SearchWrapper = styled.div`
   display: flex;
@@ -50,6 +50,7 @@ const SearchEngine = styled.div`
       flex-direction: column;
     }
   }
+  
 `;
 
 const SearchDropdown = styled.div`
