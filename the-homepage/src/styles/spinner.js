@@ -22,6 +22,21 @@ const SpinnerAnimation = styled.div`
   animation: ${rotate360} 0.6s linear infinite;
 `;
 
+const WeatherSpinner = styled.div`
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #f6f;
+  border-top-color: #0e0;
+  border-right-color: #0dd;
+  border-bottom-color: #f90;
+  animation: ${rotate360} 0.6s linear infinite;
+`;
+
 export {
-  SpinnerAnimation
+  SpinnerAnimation,
+  WeatherSpinner
 }

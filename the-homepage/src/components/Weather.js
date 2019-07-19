@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { ContentCard } from "../styles/general";
 import { WeatherImage, WeatherCardWrapper } from "../styles/weatherStyles";
-import cloud from '../styles/images/cloud.png';
-import haze from '../styles/images/haze.png';
-import lightningcloud from '../styles/images/lightningcloud.png';
-import partlycloud from '../styles/images/partlycloudy.png';
-import raincloud from '../styles/images/raincloud.png';
-import shiningSun from '../styles/images/shining-sun-mini.png';
-import snowcloud from '../styles/images/snowcloud.png';
+import { WeatherSpinner } from '../styles/spinner';
+import scatteredNbrokencloud from '../styles/images/weather/scatteredNbrokencloud.png';
+import mist from '../styles/images/weather/mist.png';
+import thunderstorm from '../styles/images/weather/thunderstorm.png';
+import fewclouds from '../styles/images/weather/fewclouds.png';
+import showerrainNrain from '../styles/images/weather/showerrainNrain.png';
+import clearsky from '../styles/images/weather/clearsky.png';
+import snow from '../styles/images/weather/snow.png';
 
 const openWeatherKey = '6b7cf999b78778926922d8ba6376858f';
 
@@ -16,7 +17,8 @@ class Weather extends Component {
   state = {
     city: '',
     temp: '',
-    currentWeather: snowcloud
+    currentWeather: scatteredNbrokencloud,
+    haveWeather: false
   }
   componentDidMount() {
     this.getPosition();
@@ -31,13 +33,30 @@ class Weather extends Component {
         let temp = this.kelvinToCelsius(result.main.temp);
         let city = result.name;
         let currentWeatherFromApi = result.weather[0].description;
-        switch (currentWeatherFromApi) {
-          case 'clear sky': this.setState({ currentWeather: shiningSun });
-            break;
-          default: this.setState({ currentWeather: raincloud })
-        }
-        this.setState({ city: city, temp: temp })
-        console.log(temp, city, result);
+        setTimeout(() => {
+          switch (currentWeatherFromApi) {
+            case 'clear sky': this.setState({ currentWeather: clearsky });
+              break;
+            case 'few clouds': this.setState({ currentWeather: fewclouds });
+              break;
+            case 'scattered clouds': this.setState({ currentWeather: scatteredNbrokencloud });
+              break;
+            case 'broken clouds': this.setState({ currentWeather: scatteredNbrokencloud });
+              break;
+            case 'shower rain': this.setState({ currentWeather: showerrainNrain });
+              break;
+            case 'rain': this.setState({ currentWeather: showerrainNrain });
+              break;
+            case 'thunderstorm': this.setState({ currentWeather: thunderstorm });
+              break;
+            case 'snow': this.setState({ currentWeather: snow });
+              break;
+            case 'mist': this.setState({ currentWeather: mist });
+              break;
+            default: this.setState({ haveWeather: false })
+          }
+          this.setState({ city: city, temp: temp, haveWeather: true })
+        }, 500);
       });
   }
 
@@ -45,15 +64,24 @@ class Weather extends Component {
     return Math.round(kelvin - 273.15);
   }
   render() {
-    return (
-      <ContentCard>
-        <WeatherCardWrapper>
-          <WeatherImage weather={cloud} />
-          <h2>{this.state.city}</h2>
-          <h2>{this.state.temp}&deg;C</h2>
-        </WeatherCardWrapper>
-      </ContentCard>
-    );
+    switch (this.state.haveWeather) {
+      case true:
+        return (
+          <ContentCard>
+            <WeatherCardWrapper>
+              <WeatherImage weather={this.state.currentWeather} />
+              <h2>{this.state.city}</h2>
+              <h2>{this.state.temp}&deg;C</h2>
+            </WeatherCardWrapper>
+          </ContentCard>
+        );
+      default:
+        return (
+          <ContentCard noborder>
+            <WeatherSpinner />
+          </ContentCard>
+        );
+    }
   }
 }
 

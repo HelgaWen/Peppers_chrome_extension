@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 // * {
 //   box-sizing: border-box;
@@ -22,6 +22,10 @@ ${props => props.column ? 'flex-direction: column' : 'flex-direction: row'}
   margin: 1%;
   max-width: 80%;
   overflow:hidden;
+
+  ${props => props.noborder && css`
+    border:0;
+  `}
 `;
 
 export {
