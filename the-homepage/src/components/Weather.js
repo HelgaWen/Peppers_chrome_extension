@@ -1,14 +1,22 @@
 import React, { Component } from "react";
 import { ContentCard } from "../styles/general";
 import { WeatherImage, WeatherCardWrapper } from "../styles/weatherStyles";
-const openWeatherKey = '6b7cf999b78778926922d8ba6376858f';
+import cloud from '../styles/images/cloud.png';
+import haze from '../styles/images/haze.png';
+import lightningcloud from '../styles/images/lightningcloud.png';
+import partlycloud from '../styles/images/partlycloudy.png';
+import raincloud from '../styles/images/raincloud.png';
+import shiningSun from '../styles/images/shining-sun-mini.png';
+import snowcloud from '../styles/images/snowcloud.png';
 
+const openWeatherKey = '6b7cf999b78778926922d8ba6376858f';
 
 class Weather extends Component {
 
   state = {
     city: '',
-    temp: ''
+    temp: '',
+    currentWeather: snowcloud
   }
   componentDidMount() {
     this.getPosition();
@@ -22,6 +30,12 @@ class Weather extends Component {
       .then(result => {
         let temp = this.kelvinToCelsius(result.main.temp);
         let city = result.name;
+        let currentWeatherFromApi = result.weather[0].description;
+        switch (currentWeatherFromApi) {
+          case 'clear sky': this.setState({ currentWeather: shiningSun });
+            break;
+          default: this.setState({ currentWeather: raincloud })
+        }
         this.setState({ city: city, temp: temp })
         console.log(temp, city, result);
       });
@@ -34,7 +48,7 @@ class Weather extends Component {
     return (
       <ContentCard>
         <WeatherCardWrapper>
-          <WeatherImage clear />
+          <WeatherImage weather={cloud} />
           <h2>{this.state.city}</h2>
           <h2>{this.state.temp}&deg;C</h2>
         </WeatherCardWrapper>

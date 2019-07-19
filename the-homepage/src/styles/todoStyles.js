@@ -25,10 +25,10 @@ const TodoItemsContainer = styled.div`
   display:flex;
   flex-direction: column;
   justify-content: center;
-  padding:5px;
+  background-color:transparent;
   width: 100%;
   overflow:scroll;
-  max-height:300px
+  max-height:200px
 `;
 
 const TodoItem = styled.div`

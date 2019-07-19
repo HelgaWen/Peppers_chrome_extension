@@ -9,14 +9,14 @@ import {
   EngineImage,
   SearchEngineContainer
 } from "../styles/searchBar";
-import google from '../styles/images/google.png';
-import youtube from '../styles/images/youtube.png';
+import google from '../styles/images/google-new.png';
+import youtube from '../styles/images/youtube-new.png';
 import wikipedia from '../styles/images/wikipedia.png';
 
 class SearchBar extends Component {
   state = {
     path: "https://www.google.com/search?q=",
-    engine: "Google"
+    engine: google
   };
 
   searchString = React.createRef();
@@ -27,19 +27,19 @@ class SearchBar extends Component {
     switch (event.target.title) {
       case "youtube":
         this.setState({
-          engine: "Youtube",
+          engine: youtube,
           path: "https://www.youtube.com/results?search_query="
         });
         break;
       case "wikipedia":
         this.setState({
-          engine: "Wikipedia",
+          engine: wikipedia,
           path: "https://en.wikipedia.org/wiki/"
         });
         break;
       default:
         this.setState({
-          engine: "Google",
+          engine: google,
           path: "https://www.google.com/search?q="
         });
     }
@@ -56,17 +56,17 @@ class SearchBar extends Component {
         <DropdownContainer>
           <SearchEngine>
             <SearchEngineContainer>
-              <EngineImage src={google} />
+              <EngineImage src={this.state.engine} />
             </SearchEngineContainer>
             <SearchDropdown>
               <SearchButton title="google" onClick={this.setEngine}>
-                <EngineImage src={google} />
+                <EngineImage src={google} title="google" onClick={this.setEngine} />
               </SearchButton>
               <SearchButton title="youtube" onClick={this.setEngine}>
-                <EngineImage src={youtube} />
+                <EngineImage src={youtube} title="youtube" onClick={this.setEngine} />
               </SearchButton>
               <SearchButton title="wikipedia" onClick={this.setEngine}>
-                <EngineImage src={wikipedia} />
+                <EngineImage src={wikipedia} title="wikipedia" onClick={this.setEngine} />
               </SearchButton>
             </SearchDropdown>
           </SearchEngine>

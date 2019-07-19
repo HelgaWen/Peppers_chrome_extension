@@ -1,5 +1,12 @@
 import styled, { css, keyframes } from 'styled-components';
-import clear from './images/shining-sun-mini.png';
+
+import cloud from '../styles/images/cloud.png';
+import haze from '../styles/images/haze.png';
+import lightningcloud from '../styles/images/lightningcloud.png';
+import partlycloud from '../styles/images/partlycloudy.png';
+import raincloud from '../styles/images/raincloud.png';
+import shiningSun from '../styles/images/shining-sun-mini.png';
+import snowcloud from '../styles/images/snowcloud.png';
 
 const WeatherCardWrapper = styled.div`
   text-align:center;
@@ -22,14 +29,14 @@ const WeatherImage = styled.div`
   border-top-color: #0e0;
   border-right-color: #0dd;
   border-bottom-color: #f90;
-  animation: ${rotate360} 0.6s linear infinite;
+  ${'' /* animation: ${rotate360} 0.6s linear infinite; */}
 
-  ${props => props.clear && css`
+  ${props => props.weather && css`
     border: 0;
     background-repeat: no-repeat;
     object-fit:fit;
-    background-image: url(${clear});
-    animation: ${rotate360} 25s linear infinite;
+    background-image: url(${props.weather});
+    ${'' /* animation: ${rotate360} 25s linear infinite; */}
   `}
 `;
 

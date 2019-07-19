@@ -58,8 +58,8 @@ const SearchDropdown = styled.div`
   background-color: white;
   border: 1px solid black;
   border-top: 0;
-  margin-left: -13px;
-  margin-top:13px;
+  margin-left: -1px;
+  margin-top:1px;
   min-width: 160px;
   display: none;
 
@@ -82,8 +82,10 @@ const EngineImage = styled.img`
 `;
 
 const SearchEngineContainer = styled.div`
-  width:100px;
+  width:150px;
   height:50px;
+  background-repeat: no-repeat;
+  object-fit:fit;
 `;
 
 export {
