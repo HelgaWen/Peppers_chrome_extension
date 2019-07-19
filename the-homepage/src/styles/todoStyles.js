@@ -4,6 +4,8 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-shadow: 0 5px 6px -6px black;
+    padding-bottom: 2px;
 `;
 
 const Input = styled.input`
@@ -17,6 +19,7 @@ const Input = styled.input`
 const Submit = styled.button`
   outline:none;
   border: 1px solid orange;
+  border-radius: 4px;
   align-self:center;
   width: 70%;
 `;
@@ -38,8 +41,7 @@ const ItemsContainer = styled.div`
 
 const TodoItem = styled.div`
   text-align: center;
-  border-bottom: 1px solid orange;
-  padding-bottom: 2px;
+  box-shadow: 0 5px 6px -6px black;
   padding-right:5px;
   word-wrap:break-word;
 `;

@@ -7,7 +7,8 @@ const GreetingWrapper = styled.div`
   padding: 20px;
   margin-top: 50px;
   border-radius: 7px;
-  border: 1px solid black;
+  box-shadow: 2px 2px 7px black;
+  ${'' /* border: 1px solid black; */}
 `;
 
 const GreetingText = styled.p`

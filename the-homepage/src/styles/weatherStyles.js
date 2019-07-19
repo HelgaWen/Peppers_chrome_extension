@@ -1,5 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
 import clearsky from '../styles/images/weather/clearsky.png';
+
 const WeatherCardWrapper = styled.div`
   text-align:center;
 `;

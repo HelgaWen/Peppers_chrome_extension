@@ -4,8 +4,11 @@ const SearchWrapper = styled.div`
   display: flex;
   ${'' /* position:relative; */}
   margin: 20px 0;
+  padding:5px;
   width: 70%;  
-  border: 1px solid black;
+  ${'' /* border: 1px solid black; */}
+  border-radius: 7px;
+  box-shadow: 2px 2px 7px black;
 `;
 
 const SearchButton = styled.button`
@@ -57,10 +60,14 @@ const SearchDropdown = styled.div`
   position: absolute;
   width: 30%;
   background-color: white;
-  border: 1px solid black;
-  border-top: 0;
-  margin-left: -1px;
-  margin-top:1px;
+  ${'' /* border: 1px solid black; */}
+  box-shadow: 0 2px 7px black;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  margin-left: -4px;
+  margin-top:5px;
   min-width: 160px;
   display: none;
 
