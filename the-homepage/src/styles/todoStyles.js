@@ -40,20 +40,14 @@ const ItemsContainer = styled.div`
 `;
 
 const TodoItem = styled.div`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   box-shadow: 0 5px 6px -6px black;
   padding-right:5px;
   word-wrap:break-word;
-`;
 
-const ItemTitle = styled.h1`
-  font-size: 12px;
-  color: black;
-`;
-
-const ItemDescription = styled.p`
-  font-size: 10px;
-  color:grey;
+  ${props => props.clicked ? 'background-color: peachpuff' : 'background-color: white'}
 `;
 
 export {
@@ -62,6 +56,4 @@ export {
   Submit,
   ItemsContainer,
   TodoItem,
-  ItemTitle,
-  ItemDescription
 };
