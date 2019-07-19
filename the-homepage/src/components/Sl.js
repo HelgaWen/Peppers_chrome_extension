@@ -1,7 +1,7 @@
 /* global chrome */
 import React, { Component } from "react";
 import { ContentCard } from "../styles/general";
-import { SlInput, SlHeadline, InputContainer } from "../styles/slStyles";
+import { Input, Headline, InputContainer } from "../styles/slStyles";
 class SL extends Component {
   constructor(props) {
     super(props)
@@ -60,14 +60,14 @@ class SL extends Component {
   render() {
     return (
       <ContentCard column>
-        <SlHeadline>
+        <Headline>
           <h3>Metros from</h3>
-        </SlHeadline>
+        </Headline>
         <form onSubmit={this.onSubmit}>
           <InputContainer>
-            <SlInput placeholder={this.state.SL.origin} type="text" ref={this.inputOrigin} />
+            <Input placeholder={this.state.SL.origin} type="text" ref={this.inputOrigin} />
             <h3> to </h3>
-            <SlInput placeholder={this.state.SL.destination} type="text" ref={this.inputDestination} />
+            <Input placeholder={this.state.SL.destination} type="text" ref={this.inputDestination} />
           <input type='submit'></input>
           </InputContainer>
         </form>
