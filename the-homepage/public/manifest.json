@@ -13,6 +13,7 @@
     "storage",
     "activeTab",
     "identity",
-    "identity.email"
+    "identity.email",
+    "geolocation"
   ]
 }
