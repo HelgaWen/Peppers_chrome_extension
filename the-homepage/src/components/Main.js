@@ -7,6 +7,7 @@ import ContentContainer from "./ContentContainer";
 import { PageWrapper } from "../styles/general";
 import SearchBar from "./SearchBar";
 import ResetChrome from './ResetChrome';
+import ThemeSelector from './ThemeSelector';
 
 class Main extends Component {
   constructor(props) {
@@ -51,8 +52,9 @@ class Main extends Component {
     switch (this.state.nameExist) {
       case true:
         return (
-          <PageWrapper>
+          <PageWrapper >
             <ResetChrome />
+            <ThemeSelector clickFunction={this.props.toggleTheme} />
             <Greeting name={this.state.name} />
             <SearchBar />
             <ContentContainer />

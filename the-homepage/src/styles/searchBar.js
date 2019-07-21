@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+  background-color: ${props => props.theme.itemBackground};
   display: flex;
   margin: 20px 0;
   padding:5px;
   width: 70%;  
   border-radius: 7px;
-  box-shadow: 2px 2px 7px black;
+  box-shadow: 2px 2px 7px ${props => props.theme.boxShadow};
 `;
 
 const Button = styled.button`
@@ -14,7 +15,6 @@ const Button = styled.button`
   outline:none;
   width: 100%;
   background-color: transparent;
-  color: black;
   padding: 16px;
   font-size: 16px;
   cursor: pointer;
@@ -35,6 +35,10 @@ const Input = styled.input`
   overflow: hidden;
   max-width: 100%;
   float: left;
+
+  ::placeholder{
+    color: ${props => props.theme.placeholderColor}
+  }
 `;
 
 const Engine = styled.div`
@@ -42,7 +46,7 @@ const Engine = styled.div`
   background-color: transparent;
   outline: none;
   border:none;
-  border-right: 1px solid black;
+  border-right: 1px solid ${props => props.theme.boxShadow};
   position: relative;
 
   &:hover {
@@ -56,8 +60,8 @@ const Engine = styled.div`
 const Dropdown = styled.div`
   position: absolute;
   width: 30%;
-  background-color: white;
-  box-shadow: 0 2px 7px black;
+  background-color: ${props => props.theme.itemBackground};
+  box-shadow: 0 2px 7px ${props => props.theme.boxShadow};
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 7px;

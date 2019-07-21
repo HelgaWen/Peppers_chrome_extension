@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Title = styled.h1`
   font-size: 12px;
-  color: black;
+  color: ${props => props.theme.color};
 `;
 
 const Description = styled.p`
@@ -15,7 +15,7 @@ const Button = styled.button`
 `;
 
 export {
-    Title,
-    Description,
-    Button
+  Title,
+  Description,
+  Button
 };

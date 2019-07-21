@@ -1,14 +1,19 @@
 import styled from "styled-components";
 
 const InputContainer = styled.div`
-    display: flex;
+  display: flex;
 `;
 
 const Input = styled.input`
+  background-color: ${props => props.theme.itemBackground};
   outline:none;
   border-color: transparent;
-  border-bottom: 1px solid black;       
+  border-bottom: 1px solid ${props => props.theme.boxShadow};       
   margin: 5px;
+  
+  ::placeholder{
+    color: ${props => props.theme.placeholderColor}
+  }
 `;
 
 const Headline = styled.div`

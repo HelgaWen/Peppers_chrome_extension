@@ -4,21 +4,29 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    box-shadow: 0 5px 6px -6px black;
+    box-shadow: 0 5px 6px -6px ${props => props.theme.boxShadow};
     padding-bottom: 2px;
 `;
 
 const Input = styled.input`
+  background-color: ${props => props.theme.itemBackground};
   outline:none;
   border-color: transparent;
   border-bottom: 1px solid black;       
   margin: 5px;
-   
+  
+  ::placeholder{
+    color: ${props => props.theme.placeholderColor}
+  }
 `;
 
 const Submit = styled.button`
   outline:none;
-  border: 1px solid orange;
+  color: ${props => props.theme.color};
+  background-color: ${props => props.theme.buttonBackground};
+  font-size: 1.2rem;
+  font-weight: 400;
+  border: 1px solid ${props => props.theme.background};;
   border-radius: 4px;
   align-self:center;
   width: 70%;
@@ -28,7 +36,7 @@ const ItemsContainer = styled.div`
   display:inline-block;
   flex-direction: column;
   justify-content: center;
-  background-color:transparent;
+  background-color: ${props => props.theme.itemBackground};
   max-height:200px;
   width: 100%;
   overflow-x:hidden;
@@ -43,11 +51,12 @@ const TodoItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 5px 6px -6px black;
+  background-color: ${props => props.theme.itemBackground};
+  box-shadow: 0 5px 6px -6px ${props => props.theme.boxShadow};
   padding-right:5px;
   word-wrap:break-word;
 
-  ${props => props.clicked ? 'background-color: peachpuff' : 'background-color: white'}
+  ${props => props.clicked ? 'background-color: peachpuff' : `background-color: ${props => props.theme.itemBackground}`}
 `;
 
 export {

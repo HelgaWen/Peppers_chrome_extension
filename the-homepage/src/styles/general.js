@@ -9,15 +9,16 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: black;
+  color: ${props => props.theme.color};
+  background-color: ${props => props.theme.background}
 `;
 
 const ContentCard = styled.div`
 display: flex;
 ${props => props.column ? 'flex-direction: column' : 'flex-direction: row'}
   justify-content: center;
-  ${'' /* border: 1px solid black; */}
-  box-shadow: 3px 3px 7px black;
+  background-color: ${props => props.theme.itemBackground}
+  box-shadow: 3px 3px 7px ${props => props.theme.boxShadow};
   border-radius:7px;
   padding: 5px;
   margin: 1%;
