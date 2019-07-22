@@ -35,9 +35,7 @@ class SL extends Component {
     let newOriginId;
     let newDestinatinId;
 
-    fetch(`https://api.sl.se/api2/typeahead.json?key=${SLApiKey}&searchstring=${this.state.SL.origin.name}&stationsonly=true&maxresults=1`, {
-
-    })
+    fetch('http://localhost:8000/api/sl/siteid/mariatorget')
       .then(result => result.json())
       .then(data => {
         console.log('YO!')
