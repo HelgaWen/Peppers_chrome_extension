@@ -22,24 +22,23 @@ app.get('/api/sl/siteid/:station', function (req, res) {
 );
 
 app.get('/api/sl/travelA2B/:origin/:destination', function (req, res) {
-  console.log(req.params)
-  // const originId = req.params.origin;
-  // const destinationId = req.params.destination;
-  const originId = '9297';
-  const destinationId = '9119';
+  const originId = req.params.origin;
+  const destinationId = req.params.destination;
 
-  fetch(`http://api.sl.se/api2/TravelplannerV3_1/trip.json?key=${SLApiKey3dot1}&originId=${originId}&destId=${destinationId}&searchForArrival=0`)
+  fetch(`http://api.sl.se/api2/TravelplannerV3_1/trip.json?key=${SLApiKey3dot1}&originId=${originId}&destId=${destinationId}&searchForArrival=0&lang=en`)
     .then(result => result.json())
     .then(parseData => {
+      console.log(parseData)
       let arr = [];
-      for (let i = 0; i < 3; i++) {
+      console.log('HEYYY: ', parseData.Trip[0].LegList.Leg[0].Origin);
+      for (let i = 0; i < parseData.Trip.length; i++) {
         arr.push(parseData.Trip[i].LegList.Leg[0].Origin.time)
       }
-      console.log('Tre närmsta avgångar ', arr);
+      console.log('The next three departures ', arr);
       return arr
     })
     .then(data => res.send(data))
-}
+  }
 );
 
 app.listen(8000, () => console.log('App listening on port 8000!'));

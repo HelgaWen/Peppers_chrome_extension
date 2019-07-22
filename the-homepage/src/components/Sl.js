@@ -31,7 +31,7 @@ class SL extends Component {
     let siteIdOrigin;
     let siteIdDestination;
     [ siteIdOrigin, siteIdDestination ] = await this.fetchSiteId();
-    if (info.SL) {
+    if (info.SL.origin.name !== 'Origin' ) {
       this.setState({
         SL: {
           origin: {
@@ -76,7 +76,7 @@ class SL extends Component {
       fetch(`http://localhost:8000/api/sl/travelA2B/${this.state.SL.origin.siteId}/${this.state.SL.destination.siteId}`)
         .then(result => result.json())
         .then(metros => {
-          console.log(metros)
+          resolve(metros);
         });
     })
   }
@@ -90,9 +90,18 @@ class SL extends Component {
   }
 
   setInfoFromStorage = () => {
-    chrome.storage.sync.set({ SL: { origin: { name: this.state.SL.origin.name, siteId: this.state.SL.origin.siteId }, destination: { name: this.state.SL.destination.name, siteId: this.state.SL.destination.siteId } } }, () => {
-      console.log("SL info is set to  ", this.state.SL);
-    });
+    chrome.storage.sync.set({ 
+      SL: { 
+        origin: { 
+          name: this.state.SL.origin.name, 
+          siteId: this.state.SL.origin.siteId 
+        }, 
+        destination: { 
+          name: this.state.SL.destination.name, 
+          siteId: this.state.SL.destination.siteId 
+        } 
+      } 
+    }, () => console.log("SL info is set to  ", this.state.SL));
   }
 
   onSubmit = async (event) => {
@@ -101,8 +110,9 @@ class SL extends Component {
     let siteIdDestination;
     const newOrigin = this.inputOrigin.current.value === '' ? this.state.SL.origin.name : this.inputOrigin.current.value;
     const newDestination = this.inputDestination.current.value === '' ? this.state.SL.destination.name : this.inputDestination.current.value;
-    [siteIdOrigin, siteIdDestination] = await this.fetchSiteId();
-
+    [ siteIdOrigin, siteIdDestination ] = await this.fetchSiteId();
+    const metros = await this.fetchMetros();
+    console.log(metros)
     this.setState({
       SL: {
         origin: {
@@ -114,8 +124,8 @@ class SL extends Component {
           siteId: siteIdDestination
         },
       }
-    }, () => {
-      this.setInfoFromStorage();
+    }, async () => {
+      await this.setInfoFromStorage();
     }
     );
   }
