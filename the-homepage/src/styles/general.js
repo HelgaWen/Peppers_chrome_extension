@@ -28,6 +28,7 @@ ${props => props.column ? 'flex-direction: column' : 'flex-direction: row'}
   ${props => props.noborder && css`
     border:0;
     box-shadow: none;
+    background-color: transparent;
   `}
 `;
 
