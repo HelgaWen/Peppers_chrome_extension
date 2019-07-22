@@ -28,7 +28,6 @@ class SL extends Component {
 
   setInitialState = async () => {
     const info = await this.getInfoFromStorage();
-    console.log(info)
     let siteIdOrigin;
     let siteIdDestination;
     [ siteIdOrigin, siteIdDestination ] = await this.fetchSiteId();
@@ -44,6 +43,8 @@ class SL extends Component {
             siteId: siteIdDestination
           }
         }
+      }, () => {
+        this.fetchMetros();
       })
     } else {
       this.setState({ hasSlInfo: false });
@@ -60,20 +61,24 @@ class SL extends Component {
         .then(result => result.json())
         .then(data => {
           const newOriginId = data.ResponseData[0].SiteId;
-          console.log('YO!', newOriginId)
           fetch(`http://localhost:8000/api/sl/siteid/${this.state.SL.destination.name}`)
             .then(result => result.json())
             .then(data => {
               const newDestinationId = data.ResponseData[0].SiteId;
-              console.log('YO!', newDestinationId)
               resolve([newOriginId, newDestinationId]);
             })
         })
       });
   }
 
-  shouldWeFetch = () => {
-    return this.state.SL.origin !== 'Origin';
+  fetchMetros = () => {
+    return new Promise ((resolve, reject) => {
+      fetch(`http://localhost:8000/api/sl/travelA2B/${this.state.SL.origin.siteId}/${this.state.SL.destination.siteId}`)
+        .then(result => result.json())
+        .then(metros => {
+          console.log(metros)
+        });
+    })
   }
 
   getInfoFromStorage = () => {
@@ -129,7 +134,7 @@ class SL extends Component {
             <SubmitButton type='submit'/>
           </InputContainer>
         </form>
-        <h3>Leave in: </h3>
+        <h3>Leave in</h3>
         <div>
           RESULTAT
       </div>
