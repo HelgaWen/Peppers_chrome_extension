@@ -13,18 +13,10 @@ class Greeting extends Component {
     const today = new Date();
     // const currentTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     const timeInHour = today.getHours();
-
-    switch (timeInHour) {
-      case timeInHour > '06' && timeInHour < '12': this.setState({ timeOfDay: 'Good Morning ' })
-        break;
-      case timeInHour > '12' && timeInHour < '18': this.setState({ timeOfDay: 'Good Afternoon ' })
-        break;
-      case timeInHour > '18' && timeInHour < '22': this.setState({ timeOfDay: 'Good Evening ' })
-        break;
-      case timeInHour > '22' && timeInHour < '06': this.setState({ timeOfDay: 'Good Night ' })
-        break;
-      default: this.setState({ timeOfDay: 'Good day ' })
-    }
+    if (timeInHour >= 6 && timeInHour < 12) this.setState({ timePhrase: 'Good Morning ' });
+    else if (timeInHour >= 12 && timeInHour < 18) this.setState({ timePhrase: 'Good Afternoon ' });
+    else if (timeInHour >= 18 && timeInHour < 22) this.setState({ timePhrase: 'Good Evening ' });
+    else if (timeInHour >= 22 || timeInHour < 6) this.setState({ timePhrase: 'Good Night ' });
   }
 
   render() {
