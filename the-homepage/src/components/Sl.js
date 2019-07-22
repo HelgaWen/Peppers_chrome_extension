@@ -19,49 +19,50 @@ class SL extends Component {
         destination: {
           name: 'Destination',
           siteId: null
-        }
+        },
+        departures: []
       }
     }
     this.inputOrigin = React.createRef();
     this.inputDestination = React.createRef();
   }
+  
 
-  setInitialState = async () => {
-    const info = await this.getInfoFromStorage();
-    let siteIdOrigin;
-    let siteIdDestination;
-    [ siteIdOrigin, siteIdDestination ] = await this.fetchSiteId();
-    if (info.SL.origin.name !== 'Origin' ) {
-      this.setState({
-        SL: {
-          origin: {
-            name: info.SL.origin.name,
-            siteId: siteIdOrigin
-          },
-          destination: {
-            name: info.SL.destination.name,
-            siteId: siteIdDestination
-          }
-        }
-      }, () => {
-        this.fetchMetros();
-      })
-    } else {
-      this.setState({ hasSlInfo: false });
-    }
-  }
 
   componentDidMount() {
     this.setInitialState();
   }
 
-  fetchSiteId = () => {
+
+  setInitialState = async () => {
+    const info = await this.getInfoFromStorage();
+    let siteIdOrigin, siteIdDestination;
+    if(info.SL){
+      [ siteIdOrigin, siteIdDestination ] = await this.fetchSiteId(info.SL.origin.name, info.SL.destination.name);
+      let metros = await this.fetchMetros(siteIdOrigin, siteIdDestination)
+      console.log(metros)
+      this.setState({SL: {
+        origin: {
+          name: info.SL.origin.name,
+          siteId: siteIdOrigin,
+        },
+        destination: {
+          name: info.SL.destination.name,
+          siteId: siteIdDestination
+        },
+        departures: metros
+      }}, () => console.log('Updated state ', this.state.SL))
+    }
+  }
+
+
+  fetchSiteId = (origin, destination) => {
     return new Promise((resolve, reject) => {
-      fetch(`http://localhost:8000/api/sl/siteid/${this.state.SL.origin.name}`)
+      fetch(`http://localhost:8000/api/sl/siteid/${origin}`)
         .then(result => result.json())
         .then(data => {
           const newOriginId = data.ResponseData[0].SiteId;
-          fetch(`http://localhost:8000/api/sl/siteid/${this.state.SL.destination.name}`)
+          fetch(`http://localhost:8000/api/sl/siteid/${destination}`)
             .then(result => result.json())
             .then(data => {
               const newDestinationId = data.ResponseData[0].SiteId;
@@ -71,9 +72,9 @@ class SL extends Component {
       });
   }
 
-  fetchMetros = () => {
+  fetchMetros = (originId, destinationId) => {
     return new Promise ((resolve, reject) => {
-      fetch(`http://localhost:8000/api/sl/travelA2B/${this.state.SL.origin.siteId}/${this.state.SL.destination.siteId}`)
+      fetch(`http://localhost:8000/api/sl/travelA2B/${originId}/${destinationId}`)
         .then(result => result.json())
         .then(metros => {
           resolve(metros);
@@ -89,16 +90,16 @@ class SL extends Component {
     });
   }
 
-  setInfoFromStorage = () => {
+  setInfoToStorage = (origin, originId, destination, destinationId) => {
     chrome.storage.sync.set({ 
       SL: { 
         origin: { 
-          name: this.state.SL.origin.name, 
-          siteId: this.state.SL.origin.siteId 
+          name: origin, 
+          siteId: originId 
         }, 
         destination: { 
-          name: this.state.SL.destination.name, 
-          siteId: this.state.SL.destination.siteId 
+          name: destination, 
+          siteId: destinationId 
         } 
       } 
     }, () => console.log("SL info is set to  ", this.state.SL));
@@ -106,13 +107,17 @@ class SL extends Component {
 
   onSubmit = async (event) => {
     event.preventDefault();
-    let siteIdOrigin;
-    let siteIdDestination;
+    let siteIdOrigin, siteIdDestination;
     const newOrigin = this.inputOrigin.current.value === '' ? this.state.SL.origin.name : this.inputOrigin.current.value;
     const newDestination = this.inputDestination.current.value === '' ? this.state.SL.destination.name : this.inputDestination.current.value;
-    [ siteIdOrigin, siteIdDestination ] = await this.fetchSiteId();
-    const metros = await this.fetchMetros();
-    console.log(metros)
+
+    [ siteIdOrigin, siteIdDestination ] = await this.fetchSiteId(newOrigin, newDestination);
+
+    this.setInfoToStorage(newOrigin, siteIdOrigin, newDestination, siteIdDestination)
+
+    const metros = await this.fetchMetros(siteIdOrigin, siteIdDestination);
+    console.log('ON SUBMIT ', metros)
+
     this.setState({
       SL: {
         origin: {
@@ -123,9 +128,8 @@ class SL extends Component {
           name: newDestination,
           siteId: siteIdDestination
         },
+        departures: metros
       }
-    }, async () => {
-      await this.setInfoFromStorage();
     }
     );
   }

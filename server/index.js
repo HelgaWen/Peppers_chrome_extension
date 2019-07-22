@@ -28,13 +28,11 @@ app.get('/api/sl/travelA2B/:origin/:destination', function (req, res) {
   fetch(`http://api.sl.se/api2/TravelplannerV3_1/trip.json?key=${SLApiKey3dot1}&originId=${originId}&destId=${destinationId}&searchForArrival=0&lang=en`)
     .then(result => result.json())
     .then(parseData => {
-      console.log(parseData)
       let arr = [];
-      console.log('HEYYY: ', parseData.Trip[0].LegList.Leg[0].Origin);
       for (let i = 0; i < parseData.Trip.length; i++) {
         arr.push(parseData.Trip[i].LegList.Leg[0].Origin.time)
       }
-      console.log('The next three departures ', arr);
+      console.log('OriginID ' + parseData.Trip[0].LegList.Leg[0].Origin.name, 'DestinationID ' + parseData.Trip[0].LegList.Leg[parseData.Trip[0].LegList.Leg.length-1].Destination.name);
       return arr
     })
     .then(data => res.send(data))
