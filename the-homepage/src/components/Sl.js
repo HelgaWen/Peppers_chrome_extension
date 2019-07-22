@@ -37,21 +37,7 @@ class SL extends Component {
 
     fetch('http://localhost:8000/api/sl/siteid/mariatorget')
       .then(result => result.json())
-      .then(data => {
-        console.log('YO!')
-        console.log(data)
-        // newOriginId = data.ResponseData.SiteId;
-        // fetch(`https://api.sl.se/api2/typeahead.json?key=${SLApiKey}&searchstring=${this.state.SL.destination.name}&stationsonly=true&maxresults=1`, {
-        //   mode: 'no-cors'
-        // })
-        //   .then(result => result.json())
-        //   .then(data => {
-
-
-        //     this.newDestinationId = data.ResponseData.SiteId
-        //     this.setState({ SL: { origin: { siteId: newOriginId }, destination: { siteId: newDestinatinId } } }, console.log('SL STATE IS: ', this.state.SL));
-        //   })
-      })
+      .then(data => console.log)
   }
 
   shouldWeFetch = () => {
