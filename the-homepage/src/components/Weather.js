@@ -56,7 +56,7 @@ class Weather extends Component {
             default: this.setState({ haveWeather: false })
           }
           this.setState({ city: city, temp: temp, haveWeather: true })
-        }, 500);
+        }, 250);
       });
   }
 
