@@ -16,6 +16,10 @@ const Input = styled.input`
   }
 `;
 
+const SubmitButton = styled.input`
+  display:none;
+`;
+
 const Headline = styled.div`
     width: 100%;
 `;
@@ -23,5 +27,6 @@ const Headline = styled.div`
 export {
   Input,
   Headline,
-  InputContainer
+  InputContainer,
+  SubmitButton
 };
