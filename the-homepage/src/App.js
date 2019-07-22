@@ -31,16 +31,7 @@ class App extends Component {
 
   toggleTheme = () => {
     this.state.currentTheme === lightTheme ? this.setState({ currentTheme: darkTheme, htmlBGC: '#364154' }) : this.setState({ currentTheme: lightTheme, htmlBGC: '#FFF' })
-    // if (this.state.htmlBGC === '#FFF') {
-    //   let x = document.getElementsByTagName('html');
-    //   console.log(x);
-    //   x.style.background = '#FFF';
-    // } else if (this.state.htmlBGC === '#364154') {
-    //   let x = document.getElementsByTagName('html');
-    //   console.log(x);
-    //   x.style.background = '#364154';
-    // }
-    // this.state.currentTheme === lightTheme ? document.getElementsByTagName('html').style.backgroundColor = '#FFF' : document.getElementsByTagName('html').style.backgroundColor = '#364154';
+    this.state.currentTheme === lightTheme ? document.getElementsByTagName('html').style.backgroundColor = '#FFF' : document.getElementsByTagName('html').style.backgroundColor = '#364154';
   }
 
   render() {

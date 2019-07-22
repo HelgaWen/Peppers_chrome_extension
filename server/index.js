@@ -29,8 +29,11 @@ app.get('/api/sl/travelA2B/:origin/:destination', function (req, res) {
     .then(result => result.json())
     .then(parseData => {
       let arr = [];
-      for (let i = 0; i < parseData.Trip.length; i++) {
-        arr.push(parseData.Trip[i].LegList.Leg[0].Origin.time)
+      for (let i = 0; i < 3; i++) {
+        arr.push({
+          time: parseData.Trip[i].LegList.Leg[0].Origin.date + ' ' + parseData.Trip[i].LegList.Leg[0].Origin.time,
+          direction: parseData.Trip[i].LegList.Leg[0].direction
+        });
       }
       console.log('OriginID ' + parseData.Trip[0].LegList.Leg[0].Origin.name, 'DestinationID ' + parseData.Trip[0].LegList.Leg[parseData.Trip[0].LegList.Leg.length-1].Destination.name);
       return arr

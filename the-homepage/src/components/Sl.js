@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { ContentCard } from "../styles/general";
 import { Input, Headline, InputContainer, SubmitButton } from "../styles/slStyles";
+import Departure from './Departure';
 
 const SLApiKey = '222e319bd06249f39ef7ad7319123f56';
 
@@ -135,6 +136,9 @@ class SL extends Component {
   }
 
   render() {
+    let display = [];
+    this.state.SL.departures.forEach((metro, index) => display.push(<Departure id={index} metro={metro}/>)
+    )
     return (
       <ContentCard column>
         <Headline>
@@ -150,7 +154,7 @@ class SL extends Component {
         </form>
         <h3>Leave in</h3>
         <div>
-          RESULTAT
+          {display}
       </div>
       </ContentCard>
     );
