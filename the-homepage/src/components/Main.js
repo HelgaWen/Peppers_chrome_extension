@@ -1,4 +1,4 @@
-/* global chrome*/
+/* global chrome */
 import React, { Component } from "react";
 import Greeting from "./Greeting";
 import Form from "./Form";
@@ -6,8 +6,9 @@ import Spinner from "./Spinner";
 import ContentContainer from "./ContentContainer";
 import { PageWrapper } from "../styles/general";
 import SearchBar from "./SearchBar";
-import ResetChrome from './ResetChrome';
-import ThemeSelector from './ThemeSelector';
+import ResetChrome from "./ResetChrome";
+import ThemeSelector from "./ThemeSelector";
+import Quotes from "./Quotes";
 
 class Main extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class Main extends Component {
   }
 
   setName = name => {
-    chrome.storage.sync.set({ name: name }, function () {
+    chrome.storage.sync.set({ name: name }, function() {
       console.log("Name is set to  " + name);
     });
   };
@@ -52,12 +53,13 @@ class Main extends Component {
     switch (this.state.nameExist) {
       case true:
         return (
-          <PageWrapper >
+          <PageWrapper>
             <ResetChrome />
             <ThemeSelector clickFunction={this.props.toggleTheme} />
             <Greeting name={this.state.name} />
             <SearchBar />
             <ContentContainer />
+            <Quotes />
           </PageWrapper>
         );
       case false:
