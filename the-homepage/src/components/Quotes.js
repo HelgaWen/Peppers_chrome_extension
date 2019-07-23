@@ -5,29 +5,27 @@ class Quotes extends Component {
 
   state = {
     data: null,
-    spinner: "Loading...",
-    haveData: false
+    spinner: "Loading..."
   };
 
   componentDidMount() {
     fetch(this.url)
       .then(res => res.json())
       .then(data => {
-        this.setState({ data, haveData: true });
+        this.setState({ data });
       });
   }
 
   render() {
-    if (this.state.haveData) {
-      return (
-        <div>
-          {this.state.data.contents.quotes[0].quote}
-          {this.state.data.contents.quotes[0].author}
-        </div>
-      );
-    } else {
-      return <h2>{this.state.spinner}</h2>;
-    }
+    const diplay = this.state.data ? (
+      <div>
+        {this.state.data.contents.quotes[0].quote}
+        {this.state.data.contents.quotes[0].author}
+      </div>
+    ) : (
+      <h2>{this.state.spinner}</h2>
+    );
+    return diplay;
   }
 }
 
