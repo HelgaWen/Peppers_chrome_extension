@@ -2,14 +2,15 @@ import styled from "styled-components";
 import { Button } from './general';
 
 const Title = styled.h1`
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 400px;
-  margin-bottom: -8px;
   color: ${props => props.theme.color};
+  margin-bottom: 0px;
 `;
 
 const Description = styled.p`
-  font-size: 10px;
+  margin-top: 0px;
+  font-size: 18px;
   color: ${props => props.theme.color};
 `;
 
