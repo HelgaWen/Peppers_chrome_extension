@@ -1,6 +1,6 @@
 /* global chrome*/
 import React, { Component } from "react";
-import { ContentCard } from "../styles/general";
+import { ContentCard, Button } from "../styles/general";
 import { Input, Submit, ItemsContainer, Form } from "../styles/todoStyles";
 import Item from "./Item";
 
@@ -66,7 +66,7 @@ class Todo extends Component {
         <Form onSubmit={this.onSubmit}>
           <Input placeholder="Title" type="text" ref={this.title} required />
           <Input placeholder="Description" type="text" ref={this.description} />
-          <Submit>Add</Submit>
+          <Button>Add</Button>
         </Form>
         <ItemsContainer>{display}</ItemsContainer>
       </ContentCard>

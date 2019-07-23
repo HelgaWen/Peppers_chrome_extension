@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { TodoItem } from '../styles/todoStyles';
-import { Title, Description, Button } from '../styles/item';
+import { Title, Description, RmvButton } from '../styles/item';
 
 class Item extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Item extends Component {
       <TodoItem clicked={this.state.clicked} onClick={this.handleItemClick}>
         <Title>{this.props.item.title}</Title>
         <Description>{this.props.item.desc}</Description>
-        <Button clicked={this.state.clicked} onClick={this.handleRemoveButtonClick}>Remove</Button>
+        <RmvButton clicked={this.state.clicked} onClick={this.handleRemoveButtonClick}>Remove</RmvButton>
       </TodoItem>
     );
   }

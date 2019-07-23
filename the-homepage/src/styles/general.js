@@ -1,9 +1,5 @@
 import styled, { css } from "styled-components";
 
-// * {
-//   box-sizing: border-box;
-// }
-
 const PageWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -44,4 +40,22 @@ const ContentCard = styled.div`
     `}
 `;
 
-export { PageWrapper, ContentCard };
+const Button = styled.button`
+  outline: none;
+  color: ${props => props.theme.color};
+  background-color: ${props => props.theme.background};
+  font-size: 0.9rem;
+  font-weight: 400;
+  border: 1px solid ${props => props.theme.background};
+  border-radius: 4px;
+  align-self: center;
+  width: 50%;
+
+  &:hover {
+    background-color: ${props => props.theme.color};
+    color: ${props => props.theme.background};
+    border: 1px solid ${props => props.theme.color};
+  }
+`;
+
+export { PageWrapper, ContentCard, Button };
