@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 const ContentCardWrapper = styled.div`
+  position: relative;
   display: grid;
   width: 100%;
   height: 50%;

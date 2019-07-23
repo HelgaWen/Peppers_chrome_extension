@@ -11,29 +11,30 @@ class ContentContainer extends Component {
   constructor() {
     super();
     this.state = {
+      editMode: false,
       rnd: {
         SL: {
-          width: 200,
-          height: 200,
+          width: "200px",
+          height: "200px",
           x: 10,
           y: 10
         },
         Todo: {
-          width: 200,
-          height: 200,
-          x: 10,
+          width: "200px",
+          height: "200px",
+          x: 50,
           y: 10
         },
         Weather: {
-          width: 200,
-          height: 200,
-          x: 10,
+          width: "200px",
+          height: "200px",
+          x: 80,
           y: 10
         },
         Quotes: {
-          width: 200,
-          height: 200,
-          x: 10,
+          width: "200px",
+          height: "200px",
+          x: 100,
           y: 10
         }
       }
@@ -60,8 +61,8 @@ class ContentContainer extends Component {
   };
 
   render() {
-    return (
-      <ContentCardWrapper>
+    const display = this.state.editMode ? (
+      <React.Fragment>
         <Rnd
           size={{
             width: this.state.rnd.SL.width,
@@ -71,6 +72,7 @@ class ContentContainer extends Component {
           onDragStop={(e, d) => {
             this.setState(
               {
+                ...this.state,
                 rnd: {
                   ...this.state.rnd,
                   SL: {
@@ -86,6 +88,7 @@ class ContentContainer extends Component {
           onResizeStop={(e, direction, ref, delta, position) => {
             this.setState(
               {
+                ...this.state,
                 rnd: {
                   ...this.state.rnd,
                   SL: {
@@ -102,7 +105,6 @@ class ContentContainer extends Component {
         >
           <SL />
         </Rnd>
-
         <Rnd
           size={{
             width: this.state.rnd.Todo.width,
@@ -112,6 +114,7 @@ class ContentContainer extends Component {
           onDragStop={(e, d) => {
             this.setState(
               {
+                ...this.state,
                 rnd: {
                   ...this.state.rnd,
                   Todo: {
@@ -127,6 +130,7 @@ class ContentContainer extends Component {
           onResizeStop={(e, direction, ref, delta, position) => {
             this.setState(
               {
+                ...this.state,
                 rnd: {
                   ...this.state.rnd,
                   Todo: {
@@ -143,8 +147,7 @@ class ContentContainer extends Component {
         >
           <Todo />
         </Rnd>
-
-        {/* <Rnd
+        <Rnd
           size={{
             width: this.state.rnd.Weather.width,
             height: this.state.rnd.Weather.height
@@ -154,14 +157,27 @@ class ContentContainer extends Component {
             y: this.state.rnd.Weather.y
           }}
           onDragStop={(e, d) => {
-            this.setState({ rnd: { Weather: { x: d.x, y: d.y } } }, () =>
-              this.setRndInStorage()
+            this.setState(
+              {
+                ...this.state,
+                rnd: {
+                  ...this.state.rnd,
+                  Weather: {
+                    ...this.state.rnd.Weather,
+                    x: d.x,
+                    y: d.y
+                  }
+                }
+              },
+              () => this.setRndInStorage()
             );
           }}
           onResizeStop={(e, direction, ref, delta, position) => {
             this.setState(
               {
+                ...this.state,
                 rnd: {
+                  ...this.state.rnd,
                   Weather: {
                     width: ref.style.width,
                     height: ref.style.height,
@@ -176,25 +192,34 @@ class ContentContainer extends Component {
         >
           <Weather />
         </Rnd>
-
         <Rnd
           size={{
             width: this.state.rnd.Quotes.width,
             height: this.state.rnd.Quotes.height
           }}
-          position={{
-            x: this.state.rnd.Quotes.x,
-            y: this.state.rnd.Quotes.y
-          }}
+          position={{ x: this.state.rnd.Quotes.x, y: this.state.rnd.Quotes.y }}
           onDragStop={(e, d) => {
-            this.setState({ rnd: { Quotes: { x: d.x, y: d.y } } }, () =>
-              this.setRndInStorage()
+            this.setState(
+              {
+                ...this.state,
+                rnd: {
+                  ...this.state.rnd,
+                  Quotes: {
+                    ...this.state.rnd.Quotes,
+                    x: d.x,
+                    y: d.y
+                  }
+                }
+              },
+              () => this.setRndInStorage()
             );
           }}
           onResizeStop={(e, direction, ref, delta, position) => {
             this.setState(
               {
+                ...this.state,
                 rnd: {
+                  ...this.state.rnd,
                   Quotes: {
                     width: ref.style.width,
                     height: ref.style.height,
@@ -209,9 +234,16 @@ class ContentContainer extends Component {
         >
           <Quotes />
         </Rnd>
-*/}
-      </ContentCardWrapper>
+      </React.Fragment>
+    ) : (
+      <React.Fragment>
+        <SL position={this.state.rnd.SL} />
+        <Todo position={this.state.rnd.Todo} />
+        <Weather position={this.state.rnd.Weather} />
+        <Quotes position={this.state.rnd.Quotes} />
+      </React.Fragment>
     );
+    return <ContentCardWrapper>{display}</ContentCardWrapper>;
   }
 }
 

@@ -19,14 +19,14 @@ class Quotes extends Component {
 
   render() {
     const diplay = this.state.data ? (
-      <ContentCard>
+      <ContentCard cssPosition={this.props.position}>
         <div>
           <p>{this.state.data.contents.quotes[0].quote}</p>
           <p>{this.state.data.contents.quotes[0].author}</p>
         </div>
       </ContentCard>
     ) : (
-      <ContentCard noborder>
+      <ContentCard noborder cssPosition={this.props.position}>
         <h2>{this.state.spinner}</h2>
       </ContentCard>
     );
