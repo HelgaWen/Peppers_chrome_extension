@@ -27,13 +27,10 @@ class SL extends Component {
     this.inputOrigin = React.createRef();
     this.inputDestination = React.createRef();
   }
-  
-
 
   componentDidMount() {
     this.setInitialState();
   }
-
 
   setInitialState = async () => {
     const info = await this.getInfoFromStorage();
@@ -135,6 +132,13 @@ class SL extends Component {
     );
   }
 
+  onSwitchClick = event => {
+    event.preventDefault();
+    [this.state.SL.origin, this.state.SL.destination] = [this.state.SL.destination, this.state.SL.origin];
+    [this.inputOrigin, this.inputDestination] = [this.inputDestination, this.inputOrigin];
+    this.onSubmit(event);
+  }
+
   render() {
     let display = [];
     this.state.SL.departures.forEach((metro, index) => display.push(<Departure id={index} metro={metro}/>)
@@ -147,7 +151,7 @@ class SL extends Component {
         <form onSubmit={this.onSubmit}>
           <InputContainer>
             <Input placeholder={this.state.SL.origin.name} type="text" ref={this.inputOrigin} />
-            <h3> to </h3>
+            <button type="button" name="switch" onClick={this.onSwitchClick}> to </button>
             <Input placeholder={this.state.SL.destination.name} type="text" ref={this.inputDestination} />
             <SubmitButton type='submit'/>
           </InputContainer>
