@@ -1,15 +1,8 @@
 /* global chrome */
 import React, { Component } from "react";
 import { ContentCard } from "../styles/general";
-import {
-  Input,
-  Headline,
-  InputContainer,
-  SubmitButton
-} from "../styles/slStyles";
+import { Input, Headline, InputContainer, SubmitButton } from "../styles/slStyles";
 import Departure from "./Departure";
-
-const SLApiKey = "222e319bd06249f39ef7ad7319123f56";
 
 class SL extends Component {
   constructor(props) {
@@ -38,32 +31,35 @@ class SL extends Component {
 
   setInitialState = async () => {
     const info = await this.getInfoFromStorage();
-    let siteIdOrigin, siteIdDestination;
+    let originId, destinationId;
     if (info.SL) {
-      [siteIdOrigin, siteIdDestination] = await this.fetchSiteId(
+      [originId, destinationId] = await this.fetchSiteId(
         info.SL.origin.name,
         info.SL.destination.name
       );
-      let metros = await this.fetchMetros(siteIdOrigin, siteIdDestination);
-      console.log(metros);
-      this.setState(
-        {
-          SL: {
-            origin: {
-              name: info.SL.origin.name,
-              siteId: siteIdOrigin
-            },
-            destination: {
-              name: info.SL.destination.name,
-              siteId: siteIdDestination
-            },
-            departures: metros
-          }
-        },
-        () => console.log("Updated state ", this.state.SL)
-      );
+      let metros = await this.fetchMetros(originId, destinationId);
+      this.updateState(info.SL.origin.name, originId, info.SL.destination.name, destinationId, metros);
     }
   };
+
+  updateState = (origin, originId, destination, destinationId, metros) => {
+    this.setState(
+      {
+        SL: {
+          origin: {
+            name: origin,
+            siteId: originId
+          },
+          destination: {
+            name: destination,
+            siteId: destinationId
+          },
+          departures: metros
+        }
+      },
+      () => console.log("SL: Updated state ", this.state.SL)
+    );
+  }
 
   fetchSiteId = (origin, destination) => {
     return new Promise((resolve, reject) => {
@@ -121,7 +117,7 @@ class SL extends Component {
 
   onSubmit = async event => {
     event.preventDefault();
-    let siteIdOrigin, siteIdDestination;
+    let originId, destinationId;
     const newOrigin =
       this.inputOrigin.current.value === ""
         ? this.state.SL.origin.name
@@ -130,65 +126,50 @@ class SL extends Component {
       this.inputDestination.current.value === ""
         ? this.state.SL.destination.name
         : this.inputDestination.current.value;
-
-    [siteIdOrigin, siteIdDestination] = await this.fetchSiteId(
-      newOrigin,
-      newDestination
-    );
-
-    this.setInfoToStorage(
-      newOrigin,
-      siteIdOrigin,
-      newDestination,
-      siteIdDestination
-    );
-
-    const metros = await this.fetchMetros(siteIdOrigin, siteIdDestination);
-    console.log("ON SUBMIT ", metros);
-
-    this.setState({
-      SL: {
-        origin: {
-          name: newOrigin,
-          siteId: siteIdOrigin
-        },
-        destination: {
-          name: newDestination,
-          siteId: siteIdDestination
-        },
-        departures: metros
-      }
-    });
+    
+    this.resetInputFields();
+    [originId, destinationId] = await this.fetchSiteId(newOrigin, newDestination);
+    this.setInfoToStorage(newOrigin, originId, newDestination, destinationId);
+    const metros = await this.fetchMetros(originId, destinationId);
+    this.updateState(newOrigin, originId, newDestination, destinationId, metros);
   };
+
+  resetInputFields = () => {
+    const inputField1 = document.querySelector('#inputfield1');
+    inputField1.value = "";
+    const inputField2 = document.querySelector('#inputfield2');
+    inputField2.value = "";
+  }
+
+  onSwitchClick = event => {
+    event.preventDefault();
+    [this.state.SL.origin, this.state.SL.destination] = [this.state.SL.destination, this.state.SL.origin];
+    [this.inputOrigin, this.inputDestination] = [this.inputDestination, this.inputOrigin];
+    this.onSubmit(event);
+  }
+
+  capFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
   render() {
     let display = [];
     this.state.SL.departures.forEach((metro, index) =>
       display.push(<Departure id={index} metro={metro} />)
     );
-    console.log("SL positions: ", this.props.position);
     return (
       <ContentCard column cssPosition={this.props.position}>
         <Headline>
-          <h3>Metros from</h3>
+          <h2>Metros from</h2>
         </Headline>
         <form onSubmit={this.onSubmit}>
           <InputContainer>
-            <Input
-              placeholder={this.state.SL.origin.name}
-              type="text"
-              ref={this.inputOrigin}
-            />
-            <h3> to </h3>
-            <Input
-              placeholder={this.state.SL.destination.name}
-              type="text"
-              ref={this.inputDestination}
-            />
-            <SubmitButton type="submit" />
+            <Input id="inputfield1" placeholder={this.capFirstLetter(this.state.SL.origin.name)} type="text" ref={this.inputOrigin} />
+            <button type="button" onClick={this.onSwitchClick}> to </button>
+            <Input id="inputfield2" placeholder={this.capFirstLetter(this.state.SL.destination.name)} type="text" ref={this.inputDestination} />
+            <SubmitButton type='submit'/>
           </InputContainer>
         </form>
-        <h3>Leave in</h3>
         <div>{display}</div>
       </ContentCard>
     );
