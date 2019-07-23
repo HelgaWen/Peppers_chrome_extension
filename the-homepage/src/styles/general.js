@@ -10,12 +10,12 @@ const PageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   color: ${props => props.theme.color};
-  background-color: ${props => props.theme.background}
+  background-color: ${props => props.theme.background};
 `;
 
 const ContentCard = styled.div`
 display: flex;
-${props => props.column ? 'flex-direction: column' : 'flex-direction: row'}
+${props => (props.column ? "flex-direction: column" : "flex-direction: row")}
   justify-content: center;
   background-color: ${props => props.theme.itemBackground}
   box-shadow: 3px 3px 7px ${props => props.theme.boxShadow};
@@ -25,14 +25,13 @@ ${props => props.column ? 'flex-direction: column' : 'flex-direction: row'}
   max-width: 80%;
   overflow:hidden;
 
-  ${props => props.noborder && css`
-    border:0;
-    box-shadow: none;
-    background-color: transparent;
-  `}
+  ${props =>
+    props.noborder &&
+    css`
+      border: 0;
+      box-shadow: none;
+      background-color: transparent;
+    `}
 `;
 
-export {
-  PageWrapper,
-  ContentCard,
-};
+export { PageWrapper, ContentCard };
