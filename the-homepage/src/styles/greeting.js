@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from "styled-components";
 
 const GreetingWrapper = styled.div`
   display: flex;
@@ -16,24 +16,45 @@ const GreetingLine = styled.div`
   margin-right: 5px;
   border-radius: 4px;
   transform-origin: top;
-  background: #47cd93;
-  background: -moz-linear-gradient(top, #47cd93 0%, #24c285 0%, #337556 52%, #364154 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, #47cd93), color-stop(0%, #24c285), color-stop(52%, #337556), color-stop(100%, #364154));
-  background: -webkit-linear-gradient(top, #47cd93 0%, #24c285 0%, #337556 52%, #364154 100%);
-  background: -o-linear-gradient(top, #47cd93 0%, #24c285 0%, #337556 52%, #364154 100%);
-  background: -ms-linear-gradient(top, #47cd93 0%, #24c285 0%, #337556 52%, #364154 100%);
-  background: linear-gradient(to bottom, #47cd93 0%, #24c285 0%, #337556 52%, #364154 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#47cd93', endColorstr='#364154', GradientType=0 );
+
+  ${props =>
+    props.theme.theme === "dark" &&
+    css`
+      background: #47cd93;
+      background: linear-gradient(
+        to bottom,
+        ${props => props.theme.color} 0%,
+        #24c285 0%,
+        #337556 52%,
+        ${props => props.theme.background} 100%
+      );
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#47cd93', endColorstr='#364154', GradientType=0 );
+    `}
+
+  ${props =>
+    props.theme.theme === "light" &&
+    css`
+      background: linear-gradient(
+        to bottom,
+        rgba(252, 108, 132, 1) 0%,
+        rgba(250, 135, 154, 1) 11%,
+        rgba(252, 184, 195, 1) 44%,
+        rgba(247, 247, 242, 1) 80%,
+        rgba(247, 247, 242, 1) 100%
+      );
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc6c84', endColorstr='#f7f7f2', GradientType=0 );
+    `}
 `;
 
 const GreetingText = styled.p`
   margin-top: 10px;
   font-size: 2rem;
   font-weight: 400;
+  ${props =>
+    props.theme.theme === "light" &&
+    css`
+      color: ${props => props.theme.placeholderColor};
+    `}
 `;
 
-export {
-  GreetingWrapper,
-  GreetingLine,
-  GreetingText
-}
+export { GreetingWrapper, GreetingLine, GreetingText };
