@@ -9,8 +9,6 @@ import {
 } from "../styles/slStyles";
 import Departure from "./Departure";
 
-const SLApiKey = "222e319bd06249f39ef7ad7319123f56";
-
 class SL extends Component {
   constructor(props) {
     super(props);
@@ -45,7 +43,7 @@ class SL extends Component {
         info.SL.destination.name
       );
       let metros = await this.fetchMetros(siteIdOrigin, siteIdDestination);
-      console.log(metros);
+      console.log('METROS ', metros);
       this.setState(
         {
           SL: {
@@ -130,19 +128,14 @@ class SL extends Component {
       this.inputDestination.current.value === ""
         ? this.state.SL.destination.name
         : this.inputDestination.current.value;
+    
+    const inputField1 = document.querySelector('#inputfield1');
+    inputField1.value = "";
+    const inputField2 = document.querySelector('#inputfield2');
+    inputField2.value = "";
 
-    [siteIdOrigin, siteIdDestination] = await this.fetchSiteId(
-      newOrigin,
-      newDestination
-    );
-
-    this.setInfoToStorage(
-      newOrigin,
-      siteIdOrigin,
-      newDestination,
-      siteIdDestination
-    );
-
+    [siteIdOrigin, siteIdDestination] = await this.fetchSiteId(newOrigin, newDestination);
+    this.setInfoToStorage(newOrigin, siteIdOrigin, newDestination, siteIdDestination);
     const metros = await this.fetchMetros(siteIdOrigin, siteIdDestination);
     console.log("ON SUBMIT ", metros);
 
@@ -173,7 +166,6 @@ class SL extends Component {
     this.state.SL.departures.forEach((metro, index) =>
       display.push(<Departure id={index} metro={metro} />)
     );
-    console.log("SL positions: ", this.props.position);
     return (
       <ContentCard column cssPosition={this.props.position}>
         <Headline>
@@ -181,9 +173,9 @@ class SL extends Component {
         </Headline>
         <form onSubmit={this.onSubmit}>
           <InputContainer>
-            <Input placeholder={this.state.SL.origin.name} type="text" ref={this.inputOrigin} />
-            <button type="button" name="switch" onClick={this.onSwitchClick}> to </button>
-            <Input placeholder={this.state.SL.destination.name} type="text" ref={this.inputDestination} />
+            <Input id="inputfield1" placeholder={this.state.SL.origin.name} type="text" ref={this.inputOrigin} />
+            <button type="button" onClick={this.onSwitchClick}> to </button>
+            <Input id="inputfield2" placeholder={this.state.SL.destination.name} type="text" ref={this.inputDestination} />
             <SubmitButton type='submit'/>
           </InputContainer>
         </form>
