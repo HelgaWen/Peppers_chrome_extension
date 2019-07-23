@@ -32,33 +32,35 @@ class App extends Component {
     htmlBGC: "#F7F7F2"
   };
 
-  componentDidMount() {
-    this.getThemeFromStorage()
-  }
+  // componentDidMount() {
+  //   this.getThemeFromStorage()
+  // }
 
-  setThemeInStorage = () => {
-    let obj = {
-      currentTheme: this.state.currentTheme,
-      htmlBGC: this.state.htmlBGC,
-    }
-    chrome.storage.sync.set({ theme: obj }, () => {
-      console.log('Sent ', obj, ' to storage');
-      console.log('Set theme in storage from App')
-    });
-  }
+  // setThemeInStorage = () => {
+  //   let obj = {
+  //     currentTheme: this.state.currentTheme,
+  //     htmlBGC: this.state.htmlBGC,
+  //   }
+  //   chrome.storage.sync.set({ theme: obj }, () => {
+  //     console.log('Sent ', obj, ' to storage');
+  //     console.log('Set theme in storage from App')
+  //   });
+  // }
 
-  getThemeFromStorage = () => {
-    chrome.storage.sync.get(['theme'], result => {
-      if (result) {
-        console.log('result ', result)
-        this.setState({ currentTheme: result.theme.currentTheme, htmlBGC: result.theme.htmlBGC });
-      }
-    })
-  }
+  // getThemeFromStorage = () => {
+  //   chrome.storage.sync.get(['theme'], result => {
+  //     if (result) {
+  //       console.log('result ', result)
+  //       this.setState({ currentTheme: result.theme.currentTheme, htmlBGC: result.theme.htmlBGC });
+  //     }
+  //   })
+  // }
 
   toggleTheme = () => {
-    this.state.currentTheme === lightTheme ? this.setState({ currentTheme: darkTheme, htmlBGC: '#364154' }) : this.setState({ currentTheme: lightTheme, htmlBGC: '#FFF' }, () => this.setThemeInStorage())
-
+    //this.state.currentTheme === lightTheme ? this.setState({ currentTheme: darkTheme, htmlBGC: '#364154' }) : this.setState({ currentTheme: lightTheme, htmlBGC: '#FFF' }, () => this.setThemeInStorage())
+    this.state.currentTheme === lightTheme
+      ? this.setState({ currentTheme: darkTheme, htmlBGC: "#364154" })
+      : this.setState({ currentTheme: lightTheme, htmlBGC: "#F7F7F2" });
   };
 
   render() {
