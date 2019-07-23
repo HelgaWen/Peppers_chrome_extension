@@ -148,6 +148,10 @@ class SL extends Component {
     this.onSubmit(event);
   }
 
+  capFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
   render() {
     let display = [];
     this.state.SL.departures.forEach((metro, index) =>
@@ -160,9 +164,9 @@ class SL extends Component {
         </Headline>
         <form onSubmit={this.onSubmit}>
           <InputContainer>
-            <Input id="inputfield1" placeholder={this.state.SL.origin.name} type="text" ref={this.inputOrigin} />
+            <Input id="inputfield1" placeholder={this.capFirstLetter(this.state.SL.origin.name)} type="text" ref={this.inputOrigin} />
             <button type="button" onClick={this.onSwitchClick}> to </button>
-            <Input id="inputfield2" placeholder={this.state.SL.destination.name} type="text" ref={this.inputDestination} />
+            <Input id="inputfield2" placeholder={this.capFirstLetter(this.state.SL.destination.name)} type="text" ref={this.inputDestination} />
             <SubmitButton type='submit'/>
           </InputContainer>
         </form>
