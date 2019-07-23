@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { ContentCard } from "../styles/general";
 
 class Quotes extends Component {
   url = "http://quotes.rest/qod.json";
@@ -18,12 +19,16 @@ class Quotes extends Component {
 
   render() {
     const diplay = this.state.data ? (
-      <div>
-        {this.state.data.contents.quotes[0].quote}
-        {this.state.data.contents.quotes[0].author}
-      </div>
+      <ContentCard>
+        <div>
+          <p>{this.state.data.contents.quotes[0].quote}</p>
+          <p>{this.state.data.contents.quotes[0].author}</p>
+        </div>
+      </ContentCard>
     ) : (
-      <h2>{this.state.spinner}</h2>
+      <ContentCard noborder>
+        <h2>{this.state.spinner}</h2>
+      </ContentCard>
     );
     return diplay;
   }
