@@ -6,6 +6,7 @@ import Todo from "./Todo";
 import Weather from "./Weather";
 import Quotes from "./Quotes";
 import { Rnd } from "react-rnd";
+import { SettingsContainer, SettingsImage } from '../styles/settingsStyles';
 
 class ContentContainer extends Component {
   constructor() {
@@ -43,6 +44,10 @@ class ContentContainer extends Component {
 
   componentDidMount() {
     this.getRndFromStorage();
+  }
+
+  activateEditMode = () => {
+    this.state.editMode ? (this.setState({ editMode: false })) : (this.setState({ editMode: true }));
   }
 
   setRndInStorage = () => {
@@ -243,7 +248,16 @@ class ContentContainer extends Component {
           {/* <Quotes position={this.state.rnd.Quotes} /> */}
         </React.Fragment>
       );
-    return <ContentCardWrapper>{display}</ContentCardWrapper>;
+    return (
+      <React.Fragment>
+        <SettingsContainer>
+          <SettingsImage onClick={this.activateEditMode} />
+        </SettingsContainer>
+        <ContentCardWrapper>
+          {display}
+        </ContentCardWrapper>
+      </React.Fragment>
+    );
   }
 }
 
