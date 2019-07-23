@@ -1,18 +1,18 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   background-color: ${props => props.theme.itemBackground};
   display: flex;
   margin: 20px 0;
-  padding:5px;
-  width: 70%;  
+  padding: 5px;
+  width: 70%;
   border-radius: 7px;
   box-shadow: 2px 2px 7px ${props => props.theme.boxShadow};
 `;
 
 const Button = styled.button`
-  border:none;
-  outline:none;
+  border: none;
+  outline: none;
   width: 100%;
   background-color: transparent;
   padding: 16px;
@@ -30,14 +30,15 @@ const Input = styled.input`
   padding-left: 20px;
   outline: none;
   background-color: transparent;
+  color: ${props => props.theme.inputColor};
   border: 0 solid;
   height: 85%;
   overflow: hidden;
   max-width: 100%;
   float: left;
 
-  ::placeholder{
-    color: ${props => props.theme.placeholderColor}
+  ::placeholder {
+    color: ${props => props.theme.placeholderColor};
   }
 `;
 
@@ -45,7 +46,7 @@ const Engine = styled.div`
   width: 100%;
   background-color: transparent;
   outline: none;
-  border:none;
+  border: none;
   border-right: 1px solid ${props => props.theme.boxShadow};
   position: relative;
 
@@ -67,32 +68,32 @@ const Dropdown = styled.div`
   border-bottom-right-radius: 7px;
   border-bottom-left-radius: 7px;
   margin-left: -4px;
-  margin-top:5px;
+  margin-top: 5px;
   min-width: 160px;
   display: none;
 
-  &:not( :hover ) {
+  &:not(:hover) {
     display: none;
   }
 `;
 
 const DropdownContainer = styled.div`
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
 `;
 
 const Image = styled.img`
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   background-repeat: no-repeat;
-  object-fit:cover;
+  object-fit: cover;
 `;
 
 const EngineContainer = styled.div`
-  width:150px;
-  height:50px;
+  width: 150px;
+  height: 50px;
   background-repeat: no-repeat;
-  object-fit:fit;
+  object-fit: fit;
 `;
 
 export {
@@ -104,4 +105,4 @@ export {
   DropdownContainer,
   Image,
   EngineContainer
-}
+};
