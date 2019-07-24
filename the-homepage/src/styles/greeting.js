@@ -33,15 +33,14 @@ const GreetingLine = styled.div`
   ${props =>
     props.theme.name === "light" &&
     css`
-      background: linear-gradient(
-        to bottom,
-        rgba(252, 108, 132, 1) 0%,
-        rgba(250, 135, 154, 1) 11%,
-        rgba(252, 184, 195, 1) 44%,
-        rgba(247, 247, 242, 1) 80%,
-        rgba(247, 247, 242, 1) 100%
-      );
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc6c84', endColorstr='#f7f7f2', GradientType=0 );
+    background: linear-gradient(
+      to bottom,
+      ${props => props.theme.placeholderColor} 0%,
+      rgba(255,140,159,1) 30%, 
+      rgba(255,184,196,1) 61%, 
+      rgba(255,189,198,1) 81%, 
+      ${props => props.theme.background} 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc6c84', endColorstr='#bcbec0', GradientType=1 );
     `}
 `;
 
@@ -68,6 +67,9 @@ const ClockWrapper = styled.div`
   font-size: 1.7rem;
   padding-left: 10px;
 `;
+
+
+
 export {
   GreetingWrapper,
   GreetingLine,

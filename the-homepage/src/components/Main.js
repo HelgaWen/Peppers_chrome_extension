@@ -54,7 +54,6 @@ class Main extends Component {
       case true:
         return (
           <PageWrapper>
-            <ResetChrome />
             <ThemeSelector toggleTheme={this.props.toggleTheme} />
             <Greeting name={this.state.name} />
             <SearchBar />

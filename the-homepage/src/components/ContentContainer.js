@@ -8,6 +8,7 @@ import Quotes from "./Quotes";
 import FavouriteLinks from "./FavouriteLinks"
 import { Rnd } from "react-rnd";
 import { SettingsContainer, SettingsImage } from '../styles/settingsStyles';
+import ResetChrome from './ResetChrome';
 
 class ContentContainer extends Component {
   constructor() {
@@ -304,7 +305,8 @@ class ContentContainer extends Component {
     return (
       <React.Fragment>
         <SettingsContainer>
-          <SettingsImage onClick={this.activateEditMode} />
+          <SettingsImage isEdit={this.state.editMode} onClick={this.activateEditMode} />
+          {this.state.editMode ? <ResetChrome /> : <React.Fragment />}
         </SettingsContainer>
         <ContentCardWrapper>
           {display}

@@ -59,4 +59,23 @@ const Button = styled.button`
   }
 `;
 
-export { PageWrapper, ContentCard, Button };
+const ResetChromeButton = styled.button`
+  position:absolute;
+  top: 110%;
+  left: -15%;
+  width:70px; 
+  outline: none;
+  color: ${props => props.theme.color};
+  background-color: ${props => props.theme.background};
+  border: 1px solid ${props => props.theme.color};
+  font-size: 0.8rem;
+  font-weight: 400;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: ${props => props.theme.color};
+    color: ${props => props.theme.background};
+  }
+`;
+
+export { PageWrapper, ContentCard, Button, ResetChromeButton };

@@ -1,5 +1,6 @@
 /* global chrome*/
 import React from 'react';
+import { ResetChromeButton } from '../styles/general';
 
 function ResetButton() {
 
@@ -15,7 +16,7 @@ function ResetButton() {
     }
 
     return (
-        <button onClick={callReset}>Reset chrome</button>
+        <ResetChromeButton onClick={callReset}>Reset extension</ResetChromeButton>
     );
 }
 
