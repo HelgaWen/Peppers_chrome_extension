@@ -21,7 +21,7 @@ const ClockContainer = ({ digit, unit }) => {
     previousDigit = `0${previousDigit}`;
   }
 
-  return <span>{digit}</span>;
+  return <span>{currentDigit}</span>;
 };
 
 export default ClockContainer;
