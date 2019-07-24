@@ -5,6 +5,7 @@ import { Button } from "./general";
 
 const InputContainer = styled.div`
   display: flex;
+  flex-direction:column;
   margin-bottom: 20px;
 `;
 
@@ -28,9 +29,11 @@ const SubmitButton = styled.input`
 `;
 
 const SwitchButton = styled(Button)`
+  margin-top: 5px;
   width: 40px;
   height: 30px;
   padding: 0px;
+  transform: rotate(90deg);
   ${props => props.theme.name === "light" ? `background: url(${lightArrow}) no-repeat` : `background: url(${darkArrow}) no-repeat`};
   background-position: center;
   &:hover {
@@ -40,7 +43,13 @@ const SwitchButton = styled(Button)`
 `;
 
 const Headline = styled.div`
+  margin-top: 0;
+  text-align:center;
   width: 100%;
 `;
 
-export { Input, Headline, InputContainer, SubmitButton, SwitchButton };
+const Text = styled.h3`
+  margin-top:0;
+`;
+
+export { Input, Headline, InputContainer, SubmitButton, SwitchButton, Text };

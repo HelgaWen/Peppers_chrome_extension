@@ -12,12 +12,11 @@ const PageWrapper = styled.div`
 const ContentCard = styled.div`
   display: flex;
   ${props => (props.column ? "flex-direction: column" : "flex-direction: row")}
-  justify-content: center;
+  ${'' /* justify-content: center; */}
   background-color: ${props => props.theme.itemBackground};
   box-shadow: 3px 3px 7px ${props => props.theme.boxShadow};
   border-radius: 7px;
   padding: 20px;
-  margin: 1%;
   width:100%;
   height:100%;
   overflow: hidden;

@@ -1,7 +1,7 @@
 /* global chrome*/
 import React, { Component } from "react";
 import { ContentCard, Button } from "../styles/general";
-import { Input, Submit, ItemsContainer, Form } from "../styles/todoStyles";
+import { Input, ItemsContainer, Form } from "../styles/todoStyles";
 import Item from "./Item";
 
 class Todo extends Component {

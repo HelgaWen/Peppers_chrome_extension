@@ -4,7 +4,8 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 2px;
+  padding: 0px 0px 2px 0px;
+  margin: 0px;
 `;
 
 const Input = styled.input`
@@ -25,7 +26,6 @@ const ItemsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   background-color: ${props => props.theme.itemBackground};
-  max-height: 200px;
   width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;

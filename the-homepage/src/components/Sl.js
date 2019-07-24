@@ -1,7 +1,7 @@
 /* global chrome */
 import React, { Component } from "react";
 import { ContentCard  } from "../styles/general";
-import { Input, Headline, InputContainer, SubmitButton, SwitchButton } from "../styles/slStyles";
+import { Input, Headline, InputContainer, SubmitButton, SwitchButton, Text } from "../styles/slStyles";
 import Departure from "./Departure";
 
 class SL extends Component {
@@ -160,7 +160,7 @@ class SL extends Component {
     return (
       <ContentCard column cssPosition={this.props.position}>
         <Headline>
-          <h3>Metros from</h3>
+          <Text>Metros from</Text>
         </Headline>
         <form onSubmit={this.onSubmit}>
           <InputContainer>
@@ -170,7 +170,7 @@ class SL extends Component {
             <SubmitButton type='submit'/>
           </InputContainer>
         </form>
-        <div>{display}</div>
+        {display}
       </ContentCard>
     );
   }

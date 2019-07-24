@@ -10,11 +10,11 @@ class Quotes extends Component {
   };
 
   componentDidMount() {
-    fetch(this.url)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ data });
-      });
+    // fetch(this.url)
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.setState({ data });
+    //   });
   }
 
   render() {
