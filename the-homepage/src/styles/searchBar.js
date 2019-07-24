@@ -71,6 +71,7 @@ const Dropdown = styled.div`
   margin-top: 5px;
   min-width: 160px;
   display: none;
+  z-index: 1;
 
   &:not(:hover) {
     display: none;
