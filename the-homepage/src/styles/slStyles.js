@@ -30,7 +30,7 @@ const SwitchButton = styled(Button)`
   width: 40px;
   height: 30px;
   padding: 0px;
-  ${props => props.theme.theme="dark" ? `background: url(${darkArrow}) no-repeat` : `backgorund: url(${lightArrow}) no-repeat`};
+  ${props => props.theme.theme==="light" ? `background: url(${lightArrow}) no-repeat` : `background: url(${darkArrow}) no-repeat`};
   background-position: 8px center;
   &:hover {
     background-color: ${props => props.theme.background}
