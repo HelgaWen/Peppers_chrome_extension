@@ -47,8 +47,8 @@ const GreetingLine = styled.div`
 `;
 
 const GreetingText = styled.p`
-  margin-top: 10px;
-  font-size: 2rem;
+  margin: 7% 0px 0px 0px;
+  font-size: 4rem;
   font-weight: 400;
   ${props =>
     props.theme.name === "light" &&
