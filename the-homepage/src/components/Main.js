@@ -59,7 +59,6 @@ class Main extends Component {
             <Greeting name={this.state.name} />
             <SearchBar />
             <ContentContainer />
-            <FavouriteLinks />
           </PageWrapper>
         );
       case false:
