@@ -20,7 +20,7 @@ const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: lightgrey;
+    background-color: ${props => props.theme.background};
   }
 `;
 
@@ -49,6 +49,7 @@ const Engine = styled.div`
   border: none;
   border-right: 1px solid ${props => props.theme.boxShadow};
   position: relative;
+  padding-right: 2px;
 
   &:hover {
     > div {
@@ -71,6 +72,7 @@ const Dropdown = styled.div`
   margin-top: 5px;
   min-width: 160px;
   display: none;
+  z-index: 1;
 
   &:not(:hover) {
     display: none;
