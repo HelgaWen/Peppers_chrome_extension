@@ -17,8 +17,8 @@ class ContentContainer extends Component {
       editMode: false,
       rnd: {
         SL: {
-          width: "431px",
-          height: "211px",
+          width: "198px",
+          height: "340px",
           x: 300,
           y: 0
         },
@@ -29,8 +29,8 @@ class ContentContainer extends Component {
           y: 0
         },
         Weather: {
-          width: "161px",
-          height: "261px",
+          width: "167px",
+          height: "234px",
           x: 800,
           y: 0
         },
@@ -98,22 +98,22 @@ class ContentContainer extends Component {
               () => this.setRndInStorage()
             );
           }}
-          onResizeStop={(e, direction, ref, delta, position) => {
-            this.setState(
-              {
-                ...this.state,
-                rnd: {
-                  ...this.state.rnd,
-                  SL: {
-                    width: ref.style.width,
-                    height: ref.style.height,
-                    ...position
-                  }
-                }
-              },
-              () => this.setRndInStorage()
-            );
-          }}
+          // onResizeStop={(e, direction, ref, delta, position) => {
+          //   this.setState(
+          //     {
+          //       ...this.state,
+          //       rnd: {
+          //         ...this.state.rnd,
+          //         SL: {
+          //           width: ref.style.width,
+          //           height: ref.style.height,
+          //           ...position
+          //         }
+          //       }
+          //     },
+          //     () => this.setRndInStorage()
+          //   );
+          // }}
           bounds={ContentCardWrapper}
         >
           <SL />
@@ -185,22 +185,22 @@ class ContentContainer extends Component {
               () => this.setRndInStorage()
             );
           }}
-          onResizeStop={(e, direction, ref, delta, position) => {
-            this.setState(
-              {
-                ...this.state,
-                rnd: {
-                  ...this.state.rnd,
-                  Weather: {
-                    width: ref.style.width,
-                    height: ref.style.height,
-                    ...position
-                  }
-                }
-              },
-              () => this.setRndInStorage()
-            );
-          }}
+          // onResizeStop={(e, direction, ref, delta, position) => {
+          //   this.setState(
+          //     {
+          //       ...this.state,
+          //       rnd: {
+          //         ...this.state.rnd,
+          //         Weather: {
+          //           width: ref.style.width,
+          //           height: ref.style.height,
+          //           ...position
+          //         }
+          //       }
+          //     },
+          //     () => this.setRndInStorage()
+          //   );
+          // }}
           bounds={ContentCardWrapper}
         >
           <Weather />

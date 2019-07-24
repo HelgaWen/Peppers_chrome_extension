@@ -16,8 +16,7 @@ class Departure extends Component {
   render() {
   return (
     <Container>
-      <Text>{this.getTimeLeftInMin()} min</Text>
-      <Text>{this.props.metro.direction}</Text>
+      <Text>{this.getTimeLeftInMin()} min {this.props.metro.direction} </Text>
     </Container>
   )
   }

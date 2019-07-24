@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     display: flex;
-    justify-content: space-between;
-    margin: 0px;
+    justify-content: flex-start;
+    padding-left: 20px;
 `;
 
 const Text = styled.h2`
