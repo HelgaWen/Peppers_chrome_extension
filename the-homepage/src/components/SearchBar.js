@@ -23,13 +23,13 @@ class SearchBar extends Component {
   setEngine = event => {
     event.preventDefault();
     switch (event.target.title) {
-      case "youtube":
+      case "Youtube":
         this.setState({
           engine: youtube,
           path: "https://www.youtube.com/results?search_query="
         });
         break;
-      case "wikipedia":
+      case "Wikipedia":
         this.setState({
           engine: wikipedia,
           path: "https://en.wikipedia.org/wiki/"
