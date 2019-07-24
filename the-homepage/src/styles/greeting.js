@@ -57,4 +57,19 @@ const GreetingText = styled.p`
     `}
 `;
 
-export { GreetingWrapper, GreetingLine, GreetingText };
+const GreetingTextAndClockContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ClockWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+export {
+  GreetingWrapper,
+  GreetingLine,
+  GreetingText,
+  GreetingTextAndClockContainer,
+  ClockWrapper
+};
