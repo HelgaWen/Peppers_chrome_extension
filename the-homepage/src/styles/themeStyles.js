@@ -31,7 +31,7 @@ const wobble = keyframes`
 `;
 
 const ThemeContainer = styled.div`
-  background-color: ${props => props.theme.themeBackground};
+  background-color: ${props => props.theme.iconBGC};
   position: absolute;
   top: 3%;
   left: 3%;
@@ -39,10 +39,6 @@ const ThemeContainer = styled.div`
   justify-content: center;
   box-shadow: 0 2px 6px ${props => props.theme.boxShadow};
   border-radius: 7px;
-
-  ${props => props.background && css`
-    background-color: ${props => props.background};
-  `}
 
   ${props => props.active && css`
     animation: ${wobble} 1.5s;
@@ -56,7 +52,7 @@ const ThemeImage = styled.div`
   height:40px;
   margin: 5px;
   padding:5px;
-  background-image: url(${props => props.current});
+  background-image: url(${props => props.theme.icon});
   background-repeat: no-repeat;
   object-fit:cover; 
 `;

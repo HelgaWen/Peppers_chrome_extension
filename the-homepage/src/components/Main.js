@@ -27,7 +27,7 @@ class Main extends Component {
   }
 
   setName = name => {
-    chrome.storage.sync.set({ name: name }, function() {
+    chrome.storage.sync.set({ name: name }, function () {
       console.log("Name is set to  " + name);
     });
   };
@@ -55,7 +55,7 @@ class Main extends Component {
         return (
           <PageWrapper>
             <ResetChrome />
-            <ThemeSelector clickFunction={this.props.toggleTheme} />
+            <ThemeSelector toggleTheme={this.props.toggleTheme} />
             <Greeting name={this.state.name} />
             <SearchBar />
             <ContentContainer />

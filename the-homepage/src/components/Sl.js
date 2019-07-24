@@ -1,7 +1,7 @@
 /* global chrome */
 import React, { Component } from "react";
-import { ContentCard, Button } from "../styles/general";
-import { Input, Headline, InputContainer, SubmitButton } from "../styles/slStyles";
+import { ContentCard  } from "../styles/general";
+import { Input, Headline, InputContainer, SubmitButton, SwitchButton } from "../styles/slStyles";
 import Departure from "./Departure";
 
 class SL extends Component {
@@ -165,7 +165,7 @@ class SL extends Component {
         <form onSubmit={this.onSubmit}>
           <InputContainer>
             <Input id="inputfield1" placeholder={this.capFirstLetter(this.state.SL.origin.name)} type="text" ref={this.inputOrigin} />
-            <Button type="button" onClick={this.onSwitchClick}> to </Button>
+            <SwitchButton type="button" onClick={this.onSwitchClick} />
             <Input id="inputfield2" placeholder={this.capFirstLetter(this.state.SL.destination.name)} type="text" ref={this.inputDestination} />
             <SubmitButton type='submit'/>
           </InputContainer>

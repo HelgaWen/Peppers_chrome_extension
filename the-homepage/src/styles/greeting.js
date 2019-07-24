@@ -18,7 +18,7 @@ const GreetingLine = styled.div`
   transform-origin: top;
 
   ${props =>
-    props.theme.theme === "dark" &&
+    props.theme.name === "dark" &&
     css`
       background: #47cd93;
       background: linear-gradient(
@@ -32,7 +32,7 @@ const GreetingLine = styled.div`
     `}
 
   ${props =>
-    props.theme.theme === "light" &&
+    props.theme.name === "light" &&
     css`
       background: linear-gradient(
         to bottom,

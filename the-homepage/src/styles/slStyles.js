@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import darkArrow from "./images/dark-arrow.png";
+import lightArrow from "./images/light-arrow.png";
+import { Button } from "./general";
 
 const InputContainer = styled.div`
   display: flex;
@@ -23,8 +26,20 @@ const SubmitButton = styled.input`
   display: none;
 `;
 
+const SwitchButton = styled(Button)`
+  width: 40px;
+  height: 30px;
+  padding: 0px;
+  ${props => props.theme.name === "light" ? `background: url(${lightArrow}) no-repeat` : `background: url(${darkArrow}) no-repeat`};
+  background-position: 8px center;
+  &:hover {
+    background-color: ${props => props.theme.background}
+    border: none;
+  }
+`;
+
 const Headline = styled.div`
   width: 100%;
 `;
 
-export { Input, Headline, InputContainer, SubmitButton };
+export { Input, Headline, InputContainer, SubmitButton, SwitchButton };
