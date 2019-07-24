@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Clock from "./Clock";
+import { GreetingTextAndClockContainer } from "../styles/greeting";
 
 import {
   GreetingText,
@@ -34,10 +35,12 @@ class Greeting extends Component {
     return (
       <GreetingWrapper>
         <GreetingLine />
-        <GreetingText>
-          {this.state.timePhrase} {this.props.name}
-        </GreetingText>
-        <Clock />
+        <GreetingTextAndClockContainer>
+          <GreetingText>
+            {this.state.timePhrase} {this.props.name}
+          </GreetingText>
+          <Clock />
+        </GreetingTextAndClockContainer>
       </GreetingWrapper>
     );
   }

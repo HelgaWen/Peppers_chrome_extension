@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ClockContainer from "./ClockContainer";
+import { ClockWrapper } from "../styles/greeting";
 
 class Clock extends Component {
   constructor(props) {
@@ -51,11 +52,11 @@ class Clock extends Component {
     const { hours, minutes, seconds, hoursShuffle } = this.state;
 
     return (
-      <div>
+      <ClockWrapper>
         <ClockContainer unit={"hours"} digit={hours} shuffle={hoursShuffle} />:
         <ClockContainer unit={"minutes"} digit={minutes} />:
         <ClockContainer unit={"seconds"} digit={seconds} />
-      </div>
+      </ClockWrapper>
     );
   }
 }
