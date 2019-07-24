@@ -2,70 +2,70 @@
 import React, { Component } from "react";
 import Main from "./components/Main";
 import { ThemeProvider } from "styled-components";
+import sun from './styles/images/sun.png';
+import moon from './styles/images/moon.png';
 
-const darkTheme = {
-  background: "#364154",
-  color: "#27E8A7",
-  boxShadow: "#292929",
-  itemBackground: "#506477",
-  themeBackground: "#FFF",
-  placeholderColor: "#fc6c85",
-  buttonBackground: "#364154",
-  inputColor: "#FFF",
-  theme: "dark"
-};
-
-const lightTheme = {
-  background: "#F7F7F2",
-  color: "#BCBEC0",
-  boxShadow: "#BCBEC0",
-  itemBackground: "#FFF",
-  themeBackground: "#364154",
-  placeholderColor: "#fc6c85",
-  buttonBackground: "#FFF",
-  theme: "light"
+const themes = {
+  dark: {
+    background: "#364154",
+    color: "#27E8A7",
+    boxShadow: "#292929",
+    itemBackground: "#506477",
+    themeBackground: "#FFF",
+    placeholderColor: "#fc6c85",
+    buttonBackground: "#364154",
+    inputColor: "#FFF",
+    name: "dark",
+    icon: sun,
+    iconBGC: '#F7F7F2'
+  },
+  light: {
+    background: "#F7F7F2",
+    color: "#BCBEC0",
+    boxShadow: "#BCBEC0",
+    itemBackground: "#FFF",
+    themeBackground: "#364154",
+    placeholderColor: "#fc6c85",
+    buttonBackground: "#FFF",
+    name: "light",
+    icon: moon,
+    iconBGC: '#364154'
+  }
 };
 
 class App extends Component {
   state = {
-    currentTheme: lightTheme,
-    htmlBGC: "#F7F7F2"
+    currentTheme: 'light'
   };
 
-  // componentDidMount() {
-  //   this.getThemeFromStorage()
-  // }
+  componentDidMount() {
+    this.getThemeFromStorage()
+  }
 
-  // setThemeInStorage = () => {
-  //   let obj = {
-  //     currentTheme: this.state.currentTheme,
-  //     htmlBGC: this.state.htmlBGC,
-  //   }
-  //   chrome.storage.sync.set({ theme: obj }, () => {
-  //     console.log('Sent ', obj, ' to storage');
-  //     console.log('Set theme in storage from App')
-  //   });
-  // }
+  setThemeInStorage = (theme) => {
+    chrome.storage.sync.set({ theme }, () => {
+      console.log('Sent ', theme, ' to storage');
+    });
+  }
 
-  // getThemeFromStorage = () => {
-  //   chrome.storage.sync.get(['theme'], result => {
-  //     if (result) {
-  //       console.log('result ', result)
-  //       this.setState({ currentTheme: result.theme.currentTheme, htmlBGC: result.theme.htmlBGC });
-  //     }
-  //   })
-  // }
+  getThemeFromStorage = () => {
+    console.log('greis')
+    chrome.storage.sync.get(['theme'], result => {
+      if (result.theme) {
+        this.setState({ currentTheme: result.theme });
+      }
+    })
+  }
 
   toggleTheme = () => {
-    //this.state.currentTheme === lightTheme ? this.setState({ currentTheme: darkTheme, htmlBGC: '#364154' }) : this.setState({ currentTheme: lightTheme, htmlBGC: '#FFF' }, () => this.setThemeInStorage())
-    this.state.currentTheme === lightTheme
-      ? this.setState({ currentTheme: darkTheme, htmlBGC: "#364154" })
-      : this.setState({ currentTheme: lightTheme, htmlBGC: "#F7F7F2" });
+    let newTheme = this.state.currentTheme === 'light' ? 'dark' : 'light'
+    this.setState({ currentTheme: newTheme })
+    this.setThemeInStorage(newTheme);
   };
 
   render() {
     return (
-      <ThemeProvider theme={this.state.currentTheme}>
+      <ThemeProvider theme={themes[this.state.currentTheme]}>
         <Main toggleTheme={this.toggleTheme} />
       </ThemeProvider>
     );
