@@ -51,7 +51,7 @@ const GreetingText = styled.p`
   font-size: 2rem;
   font-weight: 400;
   ${props =>
-    props.theme.theme === "light" &&
+    props.theme.name === "light" &&
     css`
       color: ${props => props.theme.placeholderColor};
     `}
