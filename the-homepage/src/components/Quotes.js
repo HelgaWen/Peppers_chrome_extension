@@ -18,7 +18,7 @@ class Quotes extends Component {
   }
 
   render() {
-    const diplay = this.state.data ? (
+    const display = this.state.data ? (
       <ContentCard cssPosition={this.props.position}>
         <div>
           <p>{this.state.data.contents.quotes[0].quote}</p>
@@ -30,7 +30,7 @@ class Quotes extends Component {
         <h2>{this.state.spinner}</h2>
       </ContentCard>
     );
-    return diplay;
+    return display;
   }
 }
 

@@ -3,14 +3,11 @@ import ClockContainer from "./ClockContainer";
 import { ClockWrapper } from "../styles/greeting";
 
 class Clock extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hours: 0,
-      minutes: 0,
-      seconds: 0
-    };
-  }
+  state = {
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  };
 
   componentDidMount() {
     this.timerID = setInterval(() => this.updateTime(), 50);
