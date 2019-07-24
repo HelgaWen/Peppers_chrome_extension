@@ -40,10 +40,10 @@ const TodoItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align:center;
   background-color: ${props => props.theme.itemBackground};
   box-shadow: 0 5px 6px -6px ${props => props.theme.boxShadow};
   padding-right: 5px;
-  word-wrap: break-word;
   border-bottom: 1px solid ${props => props.theme.color};
 
   ${props =>
