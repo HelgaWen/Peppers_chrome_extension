@@ -5,14 +5,15 @@ import { Button } from "./general";
 
 const InputContainer = styled.div`
   display: flex;
+  margin-bottom: 20px;
 `;
 
 const Input = styled.input`
+  width: 182px;
   background-color: ${props => props.theme.itemBackground};
   outline: none;
   color: ${props => props.theme.inputColor};
   font-size: 1.2rem;
-  font-weight: bold;
   border-color: transparent;
   border-bottom: 1px solid ${props => props.theme.boxShadow};
   margin: 5px;

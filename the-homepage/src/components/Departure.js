@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container } from '../styles/departureStyles';
+import { Container, Text } from '../styles/departureStyles';
 
 class Departure extends Component {
   constructor(props) {
@@ -16,8 +16,8 @@ class Departure extends Component {
   render() {
   return (
     <Container>
-      <h2>{this.getTimeLeftInMin()} min</h2>
-      <h2>{this.props.metro.direction}</h2>
+      <Text>{this.getTimeLeftInMin()} min</Text>
+      <Text>{this.props.metro.direction}</Text>
     </Container>
   )
   }

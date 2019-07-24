@@ -16,7 +16,7 @@ const ContentCard = styled.div`
   background-color: ${props => props.theme.itemBackground};
   box-shadow: 3px 3px 7px ${props => props.theme.boxShadow};
   border-radius: 7px;
-  padding: 5px;
+  padding: 20px;
   margin: 1%;
   width:100%;
   height:100%;

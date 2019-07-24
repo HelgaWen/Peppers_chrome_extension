@@ -9,11 +9,10 @@ const GreetingWrapper = styled.div`
 
 const GreetingLine = styled.div`
   z-index: 1;
-  left: 120px;
-  top: 120px;
   width: 10px;
   height: 140px;
-  margin-right: 5px;
+  margin-right: 10px;
+  margin-top: 12px;
   border-radius: 7px;
   transform-origin: top;
 
@@ -61,6 +60,7 @@ const GreetingTextAndClockContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 
 const ClockWrapper = styled.div`
   display: flex;
