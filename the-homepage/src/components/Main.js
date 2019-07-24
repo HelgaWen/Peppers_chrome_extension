@@ -8,6 +8,7 @@ import { PageWrapper } from "../styles/general";
 import SearchBar from "./SearchBar";
 import ResetChrome from "./ResetChrome";
 import ThemeSelector from "./ThemeSelector";
+import FavouriteLinks from "./FavouriteLinks";
 
 class Main extends Component {
   constructor(props) {
@@ -58,6 +59,7 @@ class Main extends Component {
             <Greeting name={this.state.name} />
             <SearchBar />
             <ContentContainer />
+            <FavouriteLinks />
           </PageWrapper>
         );
       case false:
