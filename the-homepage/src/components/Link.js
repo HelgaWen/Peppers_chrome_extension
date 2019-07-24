@@ -19,10 +19,15 @@ class Link extends Component {
     this.props.deleteLink(this.props.id);
   }
 
+  redirect = event => {
+    event.preventDefault();
+    window.location = 'http://www.' + this.props.links.link;
+  };
+
   render () {
     return (
       <TodoItem clicked={this.state.clicked} onClick={this.handleLinkClick}>
-        <LinkDisplay>{this.props.links.link}</LinkDisplay>
+        <LinkDisplay onClick={this.redirect}>{this.props.links.link}</LinkDisplay>
         <RmvButton clicked={this.state.clicked} onClick={this.handleRemoveButtonClick}>Remove</RmvButton>
       </TodoItem>
     );

@@ -58,7 +58,7 @@ const TodoItem = styled.div`
 `;
 
 const LinkDisplay = styled.p`
-margin-top: 0px;
+margin-top: 10px;
 font-size: 18px;
 color: ${props => props.theme.color};
 `;
