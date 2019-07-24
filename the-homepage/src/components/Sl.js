@@ -148,7 +148,7 @@ class SL extends Component {
     this.onSubmit(event);
   }
 
-  capFirstLetter(string) {
+  capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
@@ -164,9 +164,9 @@ class SL extends Component {
         </Headline>
         <form onSubmit={this.onSubmit}>
           <InputContainer>
-            <Input id="inputfield1" placeholder={this.capFirstLetter(this.state.SL.origin.name)} type="text" ref={this.inputOrigin} />
+            <Input id="inputfield1" placeholder={this.capitalizeFirstLetter(this.state.SL.origin.name)} type="text" ref={this.inputOrigin} />
             <SwitchButton type="button" onClick={this.onSwitchClick} />
-            <Input id="inputfield2" placeholder={this.capFirstLetter(this.state.SL.destination.name)} type="text" ref={this.inputDestination} />
+            <Input id="inputfield2" placeholder={this.capitalizeFirstLetter(this.state.SL.destination.name)} type="text" ref={this.inputDestination} />
             <SubmitButton type='submit'/>
           </InputContainer>
         </form>
