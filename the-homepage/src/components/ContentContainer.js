@@ -17,34 +17,34 @@ class ContentContainer extends Component {
       editMode: false,
       rnd: {
         SL: {
-          width: "200px",
-          height: "200px",
-          x: 10,
-          y: 10
+          width: "431px",
+          height: "211px",
+          x: 300,
+          y: 0
         },
         Todo: {
-          width: "200px",
-          height: "200px",
-          x: 50,
-          y: 10
+          width: "209px",
+          height: "94px",
+          x: 25,
+          y: 0
         },
         Weather: {
-          width: "200px",
-          height: "200px",
-          x: 80,
-          y: 10
+          width: "161px",
+          height: "261px",
+          x: 800,
+          y: 0
         },
         Quotes: {
           width: "200px",
-          height: "200px",
-          x: 100,
-          y: 10
+          height: "150px",
+          x: 1032,
+          y: 150
         },
         FavouriteLinks: {
-          width: "200px",
-          height: "200px",
-          x: 100,
-          y: 10
+          width: "195px",
+          height: "75px",
+          x: 1032,
+          y: 0
         }
       }
     };
