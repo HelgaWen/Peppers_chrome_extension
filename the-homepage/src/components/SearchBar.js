@@ -58,14 +58,14 @@ class SearchBar extends Component {
               <Image src={this.state.engine} />
             </EngineContainer>
             <Dropdown >
-              <Button title="google" onClick={this.setEngine}>
-                <Image src={google} title="google" onClick={this.setEngine} />
+              <Button title="Google" onClick={this.setEngine}>
+                <Image src={google} title="Google" onClick={this.setEngine} />
               </Button>
-              <Button title="youtube" onClick={this.setEngine}>
-                <Image src={youtube} title="youtube" onClick={this.setEngine} />
+              <Button title="Youtube" onClick={this.setEngine}>
+                <Image src={youtube} title="Youtube" onClick={this.setEngine} />
               </Button>
-              <Button title="wikipedia" onClick={this.setEngine}>
-                <Image src={wikipedia} title="wikipedia" onClick={this.setEngine} />
+              <Button title="Wikipedia" onClick={this.setEngine}>
+                <Image src={wikipedia} title="Wikipedia" onClick={this.setEngine} />
               </Button>
             </Dropdown>
           </Engine>
