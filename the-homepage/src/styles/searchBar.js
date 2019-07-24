@@ -49,6 +49,7 @@ const Engine = styled.div`
   border: none;
   border-right: 1px solid ${props => props.theme.boxShadow};
   position: relative;
+  padding-right: 2px;
 
   &:hover {
     > div {
