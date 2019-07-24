@@ -1,7 +1,7 @@
 /* global chrome*/
 import React, { Component } from "react";
 import { ContentCard, Button } from "../styles/general";
-import { Input, Submit, ItemsContainer, Form } from "../styles/favouriteLinksStyles";
+import { Input, Submit, LinksContainer, Form } from "../styles/favouriteLinksStyles";
 import Link from "./Link";
 
 class FavouriteLinks extends Component {
@@ -65,7 +65,7 @@ class FavouriteLinks extends Component {
           <Input placeholder="URL" type="text" ref={this.links} required />
           <Button>Add</Button>
         </Form>
-        <ItemsContainer>{display}</ItemsContainer>
+        <LinksContainer>{display}</LinksContainer>
       </ContentCard>
     );
   }

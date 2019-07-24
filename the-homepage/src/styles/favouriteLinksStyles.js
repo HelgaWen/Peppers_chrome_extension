@@ -21,7 +21,7 @@ const Input = styled.input`
   }
 `;
 
-const ItemsContainer = styled.div`
+const LinksContainer = styled.div`
   display: inline-block;
   flex-direction: column;
   justify-content: center;
@@ -68,4 +68,4 @@ const RmvButton = styled(Button)`
   border: 1px solid ${props => props.theme.color};
 `;
 
-export { Form, Input, ItemsContainer, TodoItem, LinkDisplay, RmvButton };
+export { Form, Input, LinksContainer, TodoItem, LinkDisplay, RmvButton };

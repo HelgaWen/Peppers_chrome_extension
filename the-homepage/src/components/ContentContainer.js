@@ -5,6 +5,7 @@ import SL from "./Sl";
 import Todo from "./Todo";
 import Weather from "./Weather";
 import Quotes from "./Quotes";
+import FavouriteLinks from "./FavouriteLinks"
 import { Rnd } from "react-rnd";
 import { SettingsContainer, SettingsImage } from '../styles/settingsStyles';
 
@@ -33,6 +34,12 @@ class ContentContainer extends Component {
           y: 10
         },
         Quotes: {
+          width: "200px",
+          height: "200px",
+          x: 100,
+          y: 10
+        },
+        FavouriteLinks: {
           width: "200px",
           height: "200px",
           x: 100,
@@ -197,6 +204,51 @@ class ContentContainer extends Component {
         >
           <Weather />
         </Rnd>
+        <Rnd
+          size={{
+            width: this.state.rnd.FavouriteLinks.width,
+            height: this.state.rnd.FavouriteLinks.height
+          }}
+          position={{
+            x: this.state.rnd.FavouriteLinks.x,
+            y: this.state.rnd.FavouriteLinks.y
+          }}
+          onDragStop={(e, d) => {
+            this.setState(
+              {
+                ...this.state,
+                rnd: {
+                  ...this.state.rnd,
+                  FavouriteLinks: {
+                    ...this.state.rnd.FavouriteLinks,
+                    x: d.x,
+                    y: d.y
+                  }
+                }
+              },
+              () => this.setRndInStorage()
+            );
+          }}
+          onResizeStop={(e, direction, ref, delta, position) => {
+            this.setState(
+              {
+                ...this.state,
+                rnd: {
+                  ...this.state.rnd,
+                  FavouriteLinks: {
+                    width: ref.style.width,
+                    height: ref.style.height,
+                    ...position
+                  }
+                }
+              },
+              () => this.setRndInStorage()
+            );
+          }}
+          bounds={ContentCardWrapper}
+        >
+          <FavouriteLinks />
+        </Rnd>
         {/* <Rnd
           size={{
             width: this.state.rnd.Quotes.width,
@@ -246,6 +298,7 @@ class ContentContainer extends Component {
           <Todo position={this.state.rnd.Todo} />
           <Weather position={this.state.rnd.Weather} />
           {/* <Quotes position={this.state.rnd.Quotes} /> */}
+          <FavouriteLinks position={this.state.rnd.FavouriteLinks} />
         </React.Fragment>
       );
     return (
