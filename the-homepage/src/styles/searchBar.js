@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   background-color: ${props => props.theme.itemBackground};
   display: flex;
-  margin: 20px 0;
+  margin-bottom: 30px;
   padding: 5px;
   width: 70%;
   border-radius: 7px;

@@ -249,7 +249,7 @@ class ContentContainer extends Component {
         >
           <FavouriteLinks />
         </Rnd>
-        {/* <Rnd
+        <Rnd
           size={{
             width: this.state.rnd.Quotes.width,
             height: this.state.rnd.Quotes.height
@@ -290,14 +290,14 @@ class ContentContainer extends Component {
           bounds={ContentCardWrapper}
         >
           <Quotes />
-        </Rnd> */}
+        </Rnd>
       </React.Fragment>
     ) : (
         <React.Fragment>
           <SL position={this.state.rnd.SL} />
           <Todo position={this.state.rnd.Todo} />
           <Weather position={this.state.rnd.Weather} />
-          {/* <Quotes position={this.state.rnd.Quotes} /> */}
+          <Quotes position={this.state.rnd.Quotes} />
           <FavouriteLinks position={this.state.rnd.FavouriteLinks} />
         </React.Fragment>
       );
