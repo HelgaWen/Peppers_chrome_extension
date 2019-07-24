@@ -27,7 +27,7 @@ class Main extends Component {
   }
 
   setName = name => {
-    chrome.storage.sync.set({ name: name }, function () {
+    chrome.storage.sync.set({ name: name }, function() {
       console.log("Name is set to  " + name);
     });
   };
