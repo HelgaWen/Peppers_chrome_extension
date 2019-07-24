@@ -11,10 +11,10 @@ const GreetingLine = styled.div`
   z-index: 1;
   left: 120px;
   top: 120px;
-  width: 5px;
-  height: 80px;
+  width: 10px;
+  height: 140px;
   margin-right: 5px;
-  border-radius: 4px;
+  border-radius: 7px;
   transform-origin: top;
 
   ${props =>
@@ -47,7 +47,7 @@ const GreetingLine = styled.div`
 `;
 
 const GreetingText = styled.p`
-  margin: 7% 0px 0px 0px;
+  margin: 0.5% 0px 0px 0px;
   font-size: 4rem;
   font-weight: 400;
   ${props =>
@@ -64,7 +64,9 @@ const GreetingTextAndClockContainer = styled.div`
 
 const ClockWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  font-size: 1.7rem;
+  padding-left: 10px;
 `;
 export {
   GreetingWrapper,
