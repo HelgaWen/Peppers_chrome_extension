@@ -6,9 +6,7 @@ import Spinner from "./Spinner";
 import ContentContainer from "./ContentContainer";
 import { PageWrapper } from "../styles/general";
 import SearchBar from "./SearchBar";
-import ResetChrome from "./ResetChrome";
 import ThemeSelector from "./ThemeSelector";
-import FavouriteLinks from "./FavouriteLinks";
 
 class Main extends Component {
   constructor(props) {
@@ -27,7 +25,7 @@ class Main extends Component {
   }
 
   setName = name => {
-    chrome.storage.sync.set({ name: name }, function() {
+    chrome.storage.sync.set({ name: name }, function () {
       console.log("Name is set to  " + name);
     });
   };

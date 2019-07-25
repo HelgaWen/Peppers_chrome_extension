@@ -33,7 +33,7 @@ const wobble = keyframes`
 const ThemeContainer = styled.div`
   background-color: ${props => props.theme.iconBGC};
   position: absolute;
-  top: 3%;
+  top: 1%;
   left: 3%;
   display:flex;
   justify-content: center;

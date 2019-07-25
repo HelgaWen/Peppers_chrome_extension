@@ -1,4 +1,3 @@
-/* global chrome */
 import React, { Component } from 'react';
 import { ThemeContainer, ThemeImage } from '../styles/themeStyles'
 

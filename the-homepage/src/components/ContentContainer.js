@@ -99,10 +99,12 @@ class ContentContainer extends Component {
   toggleHide = (id) => {
     switch (id) {
       case 'SL': this.setState({ ...this.state.hidden, hidden: { ...this.state.hidden, SL: !this.state.hidden.SL } });
+        console.log('in SL');
         break;
       case 'Todo': this.setState({ ...this.state.hidden, hidden: { ...this.state.hidden, Todo: !this.state.hidden.Todo } });
         break;
       case 'Weather': this.setState({ ...this.state.hidden, hidden: { ...this.state.hidden, Weather: !this.state.hidden.Weather } });
+        console.log('in Weather');
         break;
       case 'Links': this.setState({ ...this.state.hidden, hidden: { ...this.state.hidden, Links: !this.state.hidden.Links } });
         break;
@@ -320,9 +322,9 @@ class ContentContainer extends Component {
             <React.Fragment>
               <ResetChrome />
               <HideContentContainer>
+                <HideContent Text='Weather' toggleHide={this.toggleHide} isChecked={this.state.hidden.Weather} />
                 <HideContent Text='SL' toggleHide={this.toggleHide} isChecked={this.state.hidden.SL} />
                 <HideContent Text='Todo' toggleHide={this.toggleHide} isChecked={this.state.hidden.Todo} />
-                <HideContent Text='Weather' toggleHide={this.toggleHide} isChecked={this.state.hidden.Weather} />
                 <HideContent Text='Links' toggleHide={this.toggleHide} isChecked={this.state.hidden.Links} />
               </HideContentContainer>
             </React.Fragment>

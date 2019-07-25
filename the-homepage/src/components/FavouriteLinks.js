@@ -1,7 +1,7 @@
 /* global chrome*/
 import React, { Component } from "react";
 import { ContentCard, Button } from "../styles/general";
-import { Input, Submit, LinksContainer, Form } from "../styles/favouriteLinksStyles";
+import { Input, LinksContainer, Form } from "../styles/favouriteLinksStyles";
 import Link from "./Link";
 
 class FavouriteLinks extends Component {
