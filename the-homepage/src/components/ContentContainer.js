@@ -262,7 +262,6 @@ class ContentContainer extends Component {
           <SL position={this.state.rnd.SL} hidden={this.state.hidden.SL} />
           <Todo position={this.state.rnd.Todo} hidden={this.state.hidden.Todo} />
           <Weather position={this.state.rnd.Weather} hidden={this.state.hidden.Weather} />
-          <Quotes position={this.state.rnd.Quotes} />
           <FavouriteLinks position={this.state.rnd.FavouriteLinks} hidden={this.state.hidden.Links} />
         </React.Fragment>
       );
