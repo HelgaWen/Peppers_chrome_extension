@@ -5,7 +5,7 @@ const GreetingWrapper = styled.div`
   justify-content: center;
   width: 60%;
   padding: 20px;
-  margin: 20px 0 30px 0;
+  margin: 5px 0 10px 0;
 `;
 
 const GreetingLine = styled.div`
