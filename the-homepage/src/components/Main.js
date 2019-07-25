@@ -4,11 +4,10 @@ import Greeting from "./Greeting";
 import Form from "./Form";
 import Spinner from "./Spinner";
 import ContentContainer from "./ContentContainer";
-import { PageWrapper } from "../styles/general";
+import { PageWrapper, GreetingDiv, QuotesDiv, SearchBarDiv, CardContainerDiv } from "../styles/general";
 import SearchBar from "./SearchBar";
-import ResetChrome from "./ResetChrome";
 import ThemeSelector from "./ThemeSelector";
-import FavouriteLinks from "./FavouriteLinks";
+import Quotes from "./Quotes";
 
 class Main extends Component {
   constructor(props) {
@@ -34,7 +33,6 @@ class Main extends Component {
 
   getName = () => {
     chrome.storage.sync.get(["name"], result => {
-      console.log("Name currently is " + result.name);
       if (result.name) {
         this.setState({ name: result.name, nameExist: true });
       } else {
@@ -55,9 +53,18 @@ class Main extends Component {
         return (
           <PageWrapper>
             <ThemeSelector toggleTheme={this.props.toggleTheme} />
-            <Greeting name={this.state.name} />
-            <SearchBar />
-            <ContentContainer />
+            <GreetingDiv>
+              <Greeting name={this.state.name} />
+            </GreetingDiv>
+            <QuotesDiv>
+              <Quotes />
+            </QuotesDiv>
+            <SearchBarDiv>
+              <SearchBar />
+            </SearchBarDiv>
+            <CardContainerDiv>
+              <ContentContainer />
+            </CardContainerDiv>
           </PageWrapper>
         );
       case false:

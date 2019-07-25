@@ -5,7 +5,6 @@ const Wrapper = styled.div`
   display: flex;
   margin-bottom: 30px;
   padding: 5px;
-  width: 70%;
   border-radius: 7px;
   box-shadow: 2px 2px 7px ${props => props.theme.boxShadow};
 `;

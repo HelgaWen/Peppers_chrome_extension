@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 const GreetingWrapper = styled.div`
   display: flex;
   justify-content: center;
-  width: 60%;
+  width: 100%;
   padding: 20px;
 `;
 

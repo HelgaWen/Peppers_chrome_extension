@@ -5,7 +5,7 @@ const NameInput = styled.input`
   padding: 0px;
   outline: none;
   border: none;
-  font-size: 1.1rem;
+  font-size: 2rem;
   background-color: transparent;
 `;
 
@@ -14,14 +14,12 @@ const InputWrapper = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
-  border: 1px solid #ddd;
   padding: 10px;
-  margin-bottom: 20px;
+  margin: 20% 0 0 0;
 `;
 
 const InputLabel = styled.div`
-  font-size: 1.1rem;
+  font-size: 2rem;
   color: #2a2b42;
   margin-bottom: 3px;
 `;

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Clock from "./Clock";
 import { GreetingTextAndClockContainer } from "../styles/greeting";
-
 import {
   GreetingText,
   GreetingWrapper,
@@ -19,7 +18,6 @@ class Greeting extends Component {
 
   getCurrentTimeOfDay = () => {
     const today = new Date();
-    // const currentTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     const timeInHour = today.getHours();
     if (timeInHour >= 6 && timeInHour < 12)
       this.setState({ timePhrase: "Good Morning " });

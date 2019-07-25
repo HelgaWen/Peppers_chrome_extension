@@ -5,6 +5,7 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-contents: center;
   color: ${props => props.theme.color};
   background-color: ${props => props.theme.background};
 `;
@@ -12,7 +13,6 @@ const PageWrapper = styled.div`
 const ContentCard = styled.div`
   display: flex;
   ${props => (props.column ? "flex-direction: column" : "flex-direction: row")}
-  ${'' /* justify-content: center; */}
   background-color: ${props => props.theme.itemBackground};
   box-shadow: 3px 3px 7px ${props => props.theme.boxShadow};
   border-radius: 7px;
@@ -77,4 +77,25 @@ const ResetChromeButton = styled.button`
   }
 `;
 
-export { PageWrapper, ContentCard, Button, ResetChromeButton };
+const GreetingDiv = styled.div``;
+
+const QuotesDiv = styled.div`
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+`;
+
+const SearchBarDiv = styled.div`
+  width: 60%;
+`;
+
+const CardContainerDiv = styled.div`
+  height: 80%;
+  width: 90%;
+  margin: 30px;
+`;
+
+export { PageWrapper, ContentCard, Button, ResetChromeButton, SearchBarDiv, CardContainerDiv, GreetingDiv, QuotesDiv };

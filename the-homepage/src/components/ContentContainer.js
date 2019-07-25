@@ -4,8 +4,8 @@ import { ContentCardWrapper } from "../styles/contentContainer";
 import SL from "./Sl";
 import Todo from "./Todo";
 import Weather from "./Weather";
-import Quotes from "./Quotes";
-import FavouriteLinks from "./FavouriteLinks"
+import { CardContainerDiv } from "../styles/general";
+import FavouriteLinks from "./FavouriteLinks";
 import { Rnd } from "react-rnd";
 import { SettingsContainer, SettingsImage } from '../styles/settingsStyles';
 import ResetChrome from './ResetChrome';
@@ -33,12 +33,6 @@ class ContentContainer extends Component {
           height: "234px",
           x: 800,
           y: 0
-        },
-        Quotes: {
-          width: "200px",
-          height: "150px",
-          x: 1032,
-          y: 150
         },
         FavouriteLinks: {
           width: "195px",
@@ -98,23 +92,7 @@ class ContentContainer extends Component {
               () => this.setRndInStorage()
             );
           }}
-          // onResizeStop={(e, direction, ref, delta, position) => {
-          //   this.setState(
-          //     {
-          //       ...this.state,
-          //       rnd: {
-          //         ...this.state.rnd,
-          //         SL: {
-          //           width: ref.style.width,
-          //           height: ref.style.height,
-          //           ...position
-          //         }
-          //       }
-          //     },
-          //     () => this.setRndInStorage()
-          //   );
-          // }}
-          bounds={ContentCardWrapper}
+          bounds={CardContainerDiv}
         >
           <SL />
         </Rnd>
@@ -250,55 +228,12 @@ class ContentContainer extends Component {
         >
           <FavouriteLinks />
         </Rnd>
-        <Rnd
-          size={{
-            width: this.state.rnd.Quotes.width,
-            height: this.state.rnd.Quotes.height
-          }}
-          position={{ x: this.state.rnd.Quotes.x, y: this.state.rnd.Quotes.y }}
-          onDragStop={(e, d) => {
-            this.setState(
-              {
-                ...this.state,
-                rnd: {
-                  ...this.state.rnd,
-                  Quotes: {
-                    ...this.state.rnd.Quotes,
-                    x: d.x,
-                    y: d.y
-                  }
-                }
-              },
-              () => this.setRndInStorage()
-            );
-          }}
-          onResizeStop={(e, direction, ref, delta, position) => {
-            this.setState(
-              {
-                ...this.state,
-                rnd: {
-                  ...this.state.rnd,
-                  Quotes: {
-                    width: ref.style.width,
-                    height: ref.style.height,
-                    ...position
-                  }
-                }
-              },
-              () => this.setRndInStorage()
-            );
-          }}
-          bounds={ContentCardWrapper}
-        >
-          <Quotes />
-        </Rnd>
       </React.Fragment>
     ) : (
         <React.Fragment>
           <SL position={this.state.rnd.SL} />
           <Todo position={this.state.rnd.Todo} />
           <Weather position={this.state.rnd.Weather} />
-          <Quotes position={this.state.rnd.Quotes} />
           <FavouriteLinks position={this.state.rnd.FavouriteLinks} />
         </React.Fragment>
       );

@@ -1,7 +1,6 @@
 /* global chrome */
 import React, { Component } from "react";
-import { ContentCard } from "../styles/general";
-import {Text, Author} from '../styles/quotesStyles';
+import { QuotesContainer, Text, Author} from '../styles/quotesStyles';
 
 class Quotes extends Component {
   url = "http://quotes.rest/qod.json";
@@ -76,16 +75,14 @@ class Quotes extends Component {
 
   render() {
     const display = this.state.quotes.data ? (
-      <ContentCard cssPosition={this.props.position}>
-        <div>
+        <QuotesContainer>
           <Text>{this.state.quotes.data.contents.quotes[0].quote}</Text>
           <Author>{this.state.quotes.data.contents.quotes[0].author}</Author>
-        </div>
-      </ContentCard>
+        </QuotesContainer>
     ) : (
-      <ContentCard noborder cssPosition={this.props.position}>
-        <h2>{this.state.spinner}</h2>
-      </ContentCard>
+        <QuotesContainer>
+          <h2>{this.state.spinner}</h2>
+        </QuotesContainer>
     );
     return display;
   }
