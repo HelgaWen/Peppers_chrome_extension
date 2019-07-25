@@ -30,16 +30,13 @@ const StyledCheckbox = styled.div`
   display: inline-block;
   width: 16px;
   height: 16px;
-  background: ${props => (props.checked ? 'salmon' : 'papayawhip')}
+  background: ${props => (props.checked ? '#fc6c85' : 'transparent')};
+  border: 1px solid ${props => props.theme.color};
   border-radius: 3px;
   transition: all 150ms;
 
-  ${HiddenCheckbox}:focus + & {
-    box-shadow: 0 0 0 3px pink;
-  }
-
   ${Icon} {
-    visibility: ${props => (props.checked ? 'visible' : 'hidden')}
+    visibility: ${props => (props.checked ? 'visible' : 'hidden')};
   }
 `;
 

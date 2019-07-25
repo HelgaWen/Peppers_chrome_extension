@@ -26,8 +26,9 @@ const HideContentContainer = styled.div`
 `;
 
 const Text = styled.span`
-    font-size: 0.7rem;
-    color: ${props => props.theme.color};
+  padding-left: 5px;
+  font-size: 0.7rem;
+  color: ${props => props.theme.color};
 `;
 
 export { ContentCardWrapper, HideContentContainer, Text };
