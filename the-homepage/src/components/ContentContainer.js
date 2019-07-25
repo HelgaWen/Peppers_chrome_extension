@@ -178,7 +178,7 @@ class ContentContainer extends Component {
               () => this.setRndInStorage()
             );
           }}
-          bounds={ContentCardWrapper}
+          bounds={CardContainerDiv}
         >
           <Todo hidden={this.state.hidden.Todo} />
         </Rnd>
@@ -207,7 +207,7 @@ class ContentContainer extends Component {
               () => this.setRndInStorage()
             );
           }}
-          bounds={ContentCardWrapper}
+          bounds={CardContainerDiv}
         >
           <Weather hidden={this.state.hidden.Weather} />
         </Rnd>
@@ -252,7 +252,7 @@ class ContentContainer extends Component {
               () => this.setRndInStorage()
             );
           }}
-          bounds={ContentCardWrapper}
+          bounds={CardContainerDiv}
         >
           <FavouriteLinks hidden={this.state.hidden.Links} />
         </Rnd>

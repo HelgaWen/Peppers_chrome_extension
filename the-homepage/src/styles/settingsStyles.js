@@ -5,7 +5,7 @@ import saveSettings from '../styles/images/saveSettings.png';
 const SettingsContainer = styled.div`
 background-color: ${props => props.theme.themeBackground};
 position: absolute;
-top: 6%;
+top: 9%;
 left: 3%;
 display:flex;
 flex-direction:column;
