@@ -5,15 +5,15 @@ const GreetingWrapper = styled.div`
   justify-content: center;
   width: 100%;
   padding: 20px;
+  margin: 5px 0 10px 0;
 `;
 
 const GreetingLine = styled.div`
   z-index: 1;
-  width: 10px;
-  height: 140px;
+  width: 5px;
+  height: 100px;
   margin-right: 10px;
   margin-top: 12px;
-  border-radius: 7px;
   transform-origin: top;
 
   ${props =>

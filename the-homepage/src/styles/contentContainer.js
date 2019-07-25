@@ -16,4 +16,18 @@ const ContentCardWrapper = styled.div`
     `}
 `;
 
-export { ContentCardWrapper };
+const HideContentContainer = styled.div`
+  position:absolute;
+  top: 180%;
+  left:-1%;
+  width: 10vw;
+  display:flex;
+  flex-direction:column;
+`;
+
+const Text = styled.span`
+    font-size: 0.7rem;
+    color: ${props => props.theme.color};
+`;
+
+export { ContentCardWrapper, HideContentContainer, Text };

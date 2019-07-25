@@ -1,7 +1,7 @@
 /* global chrome*/
 import React, { Component } from "react";
 import { ContentCard, Button } from "../styles/general";
-import { Input, Submit, LinksContainer, Form } from "../styles/favouriteLinksStyles";
+import { Input, LinksContainer, Form } from "../styles/favouriteLinksStyles";
 import Link from "./Link";
 
 class FavouriteLinks extends Component {
@@ -60,7 +60,7 @@ class FavouriteLinks extends Component {
       display.push(<Link id={index} links={link} deleteLink={this.deleteLink} />)
     );
     return (
-      <ContentCard column cssPosition={this.props.position}>
+      <ContentCard column cssPosition={this.props.position} isHidden={this.props.hidden}>
         <Form onSubmit={this.onSubmit}>
           <Input placeholder="Favourite link" type="text" ref={this.links} required />
           <Button>Add</Button>
