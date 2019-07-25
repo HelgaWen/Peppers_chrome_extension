@@ -28,7 +28,7 @@ class Weather extends Component {
   showWeather = position => {
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat=${
-        position.coords.latitude
+      position.coords.latitude
       }&lon=${position.coords.longitude}&appid=${openWeatherKey}`
     )
       .then(result => result.json())
@@ -80,7 +80,7 @@ class Weather extends Component {
     switch (this.state.haveWeather) {
       case true:
         return (
-          <ContentCard cssPosition={this.props.position}>
+          <ContentCard cssPosition={this.props.position} isHidden={this.props.hidden}>
             <WeatherCardWrapper>
               <WeatherImage weather={this.state.currentWeather} />
               <h2>{this.state.city}</h2>

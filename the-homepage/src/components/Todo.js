@@ -62,7 +62,7 @@ class Todo extends Component {
       display.push(<Item id={index} item={item} deleteItem={this.deleteItem} />)
     );
     return (
-      <ContentCard column cssPosition={this.props.position}>
+      <ContentCard column cssPosition={this.props.position} isHidden={this.props.hidden}>
         <Form onSubmit={this.onSubmit}>
           <Input placeholder="Title" type="text" ref={this.title} required />
           <Input placeholder="Description" type="text" ref={this.description} />

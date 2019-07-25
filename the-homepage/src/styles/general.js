@@ -38,6 +38,10 @@ const ContentCard = styled.div`
       left: ${props => props.cssPosition.x}px;
       top: ${props => props.cssPosition.y}px;
     `}
+  
+  ${props => props.isHidden && css`
+    display:none;
+  `}
 `;
 
 const Button = styled.button`

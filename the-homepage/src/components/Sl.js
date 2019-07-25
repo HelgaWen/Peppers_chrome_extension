@@ -1,6 +1,6 @@
 /* global chrome */
 import React, { Component } from "react";
-import { ContentCard  } from "../styles/general";
+import { ContentCard } from "../styles/general";
 import { Input, Headline, InputContainer, SubmitButton, SwitchButton, Text } from "../styles/slStyles";
 import Departure from "./Departure";
 
@@ -126,7 +126,7 @@ class SL extends Component {
       this.inputDestination.current.value === ""
         ? this.state.SL.destination.name
         : this.inputDestination.current.value;
-    
+
     this.resetInputFields();
     [originId, destinationId] = await this.fetchSiteId(newOrigin, newDestination);
     this.setInfoToStorage(newOrigin, originId, newDestination, destinationId);
@@ -150,7 +150,7 @@ class SL extends Component {
 
   capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
-}
+  }
 
   render() {
     let display = [];
@@ -158,7 +158,7 @@ class SL extends Component {
       display.push(<Departure id={index} metro={metro} />)
     );
     return (
-      <ContentCard column cssPosition={this.props.position}>
+      <ContentCard column cssPosition={this.props.position} isHidden={this.props.hidden}>
         <Headline>
           <Text>Metros from</Text>
         </Headline>
@@ -167,7 +167,7 @@ class SL extends Component {
             <Input id="inputfield1" placeholder={this.capitalizeFirstLetter(this.state.SL.origin.name)} type="text" ref={this.inputOrigin} />
             <SwitchButton type="button" onClick={this.onSwitchClick} />
             <Input id="inputfield2" placeholder={this.capitalizeFirstLetter(this.state.SL.destination.name)} type="text" ref={this.inputDestination} />
-            <SubmitButton type='submit'/>
+            <SubmitButton type='submit' />
           </InputContainer>
         </form>
         {display}

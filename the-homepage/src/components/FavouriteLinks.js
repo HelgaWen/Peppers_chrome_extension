@@ -60,7 +60,7 @@ class FavouriteLinks extends Component {
       display.push(<Link id={index} links={link} deleteLink={this.deleteLink} />)
     );
     return (
-      <ContentCard column cssPosition={this.props.position}>
+      <ContentCard column cssPosition={this.props.position} isHidden={this.props.hidden}>
         <Form onSubmit={this.onSubmit}>
           <Input placeholder="URL" type="text" ref={this.links} required />
           <Button>Add</Button>

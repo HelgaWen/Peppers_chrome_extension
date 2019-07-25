@@ -1,6 +1,6 @@
 /* global chrome */
 import React, { Component } from "react";
-import { ContentCardWrapper } from "../styles/contentContainer";
+import { ContentCardWrapper, HideContentContainer } from "../styles/contentContainer";
 import SL from "./Sl";
 import Todo from "./Todo";
 import Weather from "./Weather";
@@ -9,6 +9,7 @@ import FavouriteLinks from "./FavouriteLinks"
 import { Rnd } from "react-rnd";
 import { SettingsContainer, SettingsImage } from '../styles/settingsStyles';
 import ResetChrome from './ResetChrome';
+import HideContent from './HideContent';
 
 class ContentContainer extends Component {
   constructor() {
@@ -46,12 +47,19 @@ class ContentContainer extends Component {
           x: 1032,
           y: 0
         }
+      },
+      hidden: {
+        SL: false,
+        Todo: false,
+        Weather: false,
+        Links: false,
       }
     };
   }
 
   componentDidMount() {
     this.getRndFromStorage();
+    this.getHiddenFromStorage();
   }
 
   activateEditMode = () => {
@@ -72,6 +80,40 @@ class ContentContainer extends Component {
       }
     });
   };
+
+  setHiddenInStorage = () => {
+    chrome.storage.sync.set({ hidden: this.state.hidden }, () => {
+      console.log("Sent ", this.state.hidden, " to storage");
+    });
+  }
+
+  getHiddenFromStorage = () => {
+    chrome.storage.sync.get(["hidden"], result => {
+      console.log("RESULT IN GET FROM STORAGE: ", result.hidden);
+      if (result.hidden) {
+        this.setState({ hidden: result.hidden });
+      }
+    });
+  }
+
+  toggleHide = (id) => {
+    switch (id) {
+      case 'SL': this.setState({ ...this.state.hidden, hidden: { ...this.state.hidden, SL: !this.state.hidden.SL } });
+        break;
+      case 'Todo': this.setState({ ...this.state.hidden, hidden: { ...this.state.hidden, Todo: !this.state.hidden.Todo } });
+        break;
+      case 'Weather': this.setState({ ...this.state.hidden, hidden: { ...this.state.hidden, Weather: !this.state.hidden.Weather } });
+        break;
+      case 'Links': this.setState({ ...this.state.hidden, hidden: { ...this.state.hidden, Links: !this.state.hidden.Links } });
+        break;
+      default: this.setState({ hidden: { SL: false, Todo: false, Weather: false, Links: false } });
+    }
+
+    setTimeout(() => {
+      this.setHiddenInStorage();
+    }, 500);
+
+  }
 
   render() {
     const display = this.state.editMode ? (
@@ -98,25 +140,9 @@ class ContentContainer extends Component {
               () => this.setRndInStorage()
             );
           }}
-          // onResizeStop={(e, direction, ref, delta, position) => {
-          //   this.setState(
-          //     {
-          //       ...this.state,
-          //       rnd: {
-          //         ...this.state.rnd,
-          //         SL: {
-          //           width: ref.style.width,
-          //           height: ref.style.height,
-          //           ...position
-          //         }
-          //       }
-          //     },
-          //     () => this.setRndInStorage()
-          //   );
-          // }}
           bounds={ContentCardWrapper}
         >
-          <SL />
+          <SL hidden={this.state.hidden.SL} />
         </Rnd>
         <Rnd
           size={{
@@ -158,7 +184,7 @@ class ContentContainer extends Component {
           }}
           bounds={ContentCardWrapper}
         >
-          <Todo />
+          <Todo hidden={this.state.hidden.Todo} />
         </Rnd>
         <Rnd
           size={{
@@ -185,25 +211,9 @@ class ContentContainer extends Component {
               () => this.setRndInStorage()
             );
           }}
-          // onResizeStop={(e, direction, ref, delta, position) => {
-          //   this.setState(
-          //     {
-          //       ...this.state,
-          //       rnd: {
-          //         ...this.state.rnd,
-          //         Weather: {
-          //           width: ref.style.width,
-          //           height: ref.style.height,
-          //           ...position
-          //         }
-          //       }
-          //     },
-          //     () => this.setRndInStorage()
-          //   );
-          // }}
           bounds={ContentCardWrapper}
         >
-          <Weather />
+          <Weather hidden={this.state.hidden.Weather} />
         </Rnd>
         <Rnd
           size={{
@@ -248,7 +258,7 @@ class ContentContainer extends Component {
           }}
           bounds={ContentCardWrapper}
         >
-          <FavouriteLinks />
+          <FavouriteLinks hidden={this.state.hidden.Links} />
         </Rnd>
         <Rnd
           size={{
@@ -295,18 +305,28 @@ class ContentContainer extends Component {
       </React.Fragment>
     ) : (
         <React.Fragment>
-          <SL position={this.state.rnd.SL} />
-          <Todo position={this.state.rnd.Todo} />
-          <Weather position={this.state.rnd.Weather} />
+          <SL position={this.state.rnd.SL} hidden={this.state.hidden.SL} />
+          <Todo position={this.state.rnd.Todo} hidden={this.state.hidden.Todo} />
+          <Weather position={this.state.rnd.Weather} hidden={this.state.hidden.Weather} />
           <Quotes position={this.state.rnd.Quotes} />
-          <FavouriteLinks position={this.state.rnd.FavouriteLinks} />
+          <FavouriteLinks position={this.state.rnd.FavouriteLinks} hidden={this.state.hidden.Links} />
         </React.Fragment>
       );
     return (
       <React.Fragment>
         <SettingsContainer>
           <SettingsImage isEdit={this.state.editMode} onClick={this.activateEditMode} />
-          {this.state.editMode ? <ResetChrome /> : <React.Fragment />}
+          {this.state.editMode ?
+            <React.Fragment>
+              <ResetChrome />
+              <HideContentContainer>
+                <HideContent Text='SL' toggleHide={this.toggleHide} isChecked={this.state.hidden.SL} />
+                <HideContent Text='Todo' toggleHide={this.toggleHide} isChecked={this.state.hidden.Todo} />
+                <HideContent Text='Weather' toggleHide={this.toggleHide} isChecked={this.state.hidden.Weather} />
+                <HideContent Text='Links' toggleHide={this.toggleHide} isChecked={this.state.hidden.Links} />
+              </HideContentContainer>
+            </React.Fragment>
+            : <React.Fragment />}
         </SettingsContainer>
         <ContentCardWrapper>
           {display}
