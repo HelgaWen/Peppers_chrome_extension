@@ -7,6 +7,7 @@ const NameInput = styled.input`
   border: none;
   font-size: 2rem;
   background-color: transparent;
+  color: #fc6c85;
 `;
 
 const InputWrapper = styled.div`
