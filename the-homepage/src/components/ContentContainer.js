@@ -20,25 +20,25 @@ class ContentContainer extends Component {
         SL: {
           width: "198px",
           height: "310px",
-          x: 345,
+          x: 387,
           y: 0
         },
         Todo: {
           width: "209px",
           height: "300px",
-          x: 20,
+          x: 68,
           y: 0
         },
         Weather: {
           width: "167px",
           height: "234px",
-          x: 660,
+          x: 697,
           y: 0
         },
         FavouriteLinks: {
           width: "195px",
           height: "234px",
-          x: 950,
+          x: 978,
           y: 0
         }
       },

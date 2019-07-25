@@ -49,7 +49,6 @@ class App extends Component {
   }
 
   getThemeFromStorage = () => {
-    console.log('greis')
     chrome.storage.sync.get(['theme'], result => {
       if (result.theme) {
         this.setState({ currentTheme: result.theme });
