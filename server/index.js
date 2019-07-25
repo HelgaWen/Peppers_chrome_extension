@@ -2,15 +2,15 @@ const express = require('express');
 const fetch = require('node-fetch');
 const app = express();
 
+const SLApiKey = '4eed51466ae747fe9ec0198b22ae3ae1';
+const SLApiKey3dot1 = '3ef1f32043d24b16b3aa2690c8ee8b87';
+
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   next();
 });
-
-const SLApiKey = '222e319bd06249f39ef7ad7319123f56';
-const SLApiKey3dot1 = 'e8771cbd86e047388f44b69f50bd4d2b';
 
 app.get('/api/sl/siteid/:station', function (req, res) {
   const station = req.params.station;
