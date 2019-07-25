@@ -6,6 +6,7 @@ const NameInput = styled.input`
   outline: none;
   border: none;
   font-size: 1.1rem;
+  background-color: transparent;
 `;
 
 const InputWrapper = styled.div`

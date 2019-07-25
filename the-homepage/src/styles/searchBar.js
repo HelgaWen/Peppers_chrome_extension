@@ -25,7 +25,7 @@ const Button = styled.button`
 `;
 
 const Input = styled.input`
-  font-size: 16px;
+  font-size: 1.2rem;
   font-weight: 400;
   padding-left: 20px;
   outline: none;
@@ -34,12 +34,16 @@ const Input = styled.input`
   border: 0 solid;
   height: 85%;
   overflow: hidden;
-  max-width: 100%;
+  width: 100%;
   float: left;
 
   ::placeholder {
     color: ${props => props.theme.placeholderColor};
   }
+`;
+
+const Form = styled.form`
+  width: 100%;
 `;
 
 const Engine = styled.div`
@@ -106,5 +110,6 @@ export {
   Button,
   DropdownContainer,
   Image,
-  EngineContainer
+  EngineContainer, 
+  Form
 };
