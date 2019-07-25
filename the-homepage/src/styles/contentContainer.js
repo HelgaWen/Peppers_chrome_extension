@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 const ContentCardWrapper = styled.div`
   position: relative;
   display: grid;
-  width: 100%;
-  height: 50%;
+  width: 95vw;
+  height: 50vh;
   align-items: center;
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);

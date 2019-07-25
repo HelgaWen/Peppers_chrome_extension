@@ -7,7 +7,8 @@ import {
   Button,
   DropdownContainer,
   Image,
-  EngineContainer
+  EngineContainer,
+  Form
 } from "../styles/searchBar";
 import google from '../styles/images/google.png';
 import youtube from '../styles/images/youtube.png';
@@ -70,13 +71,13 @@ class SearchBar extends Component {
             </Dropdown>
           </Engine>
         </DropdownContainer>
-        <form onSubmit={this.redirect}>
+        <Form onSubmit={this.redirect}>
           <Input
             placeholder="Enter search"
             ref={this.searchString}
             required
           />
-        </form>
+        </Form>
       </Wrapper>
     );
   }

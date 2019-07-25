@@ -62,7 +62,7 @@ class FavouriteLinks extends Component {
     return (
       <ContentCard column cssPosition={this.props.position} isHidden={this.props.hidden}>
         <Form onSubmit={this.onSubmit}>
-          <Input placeholder="URL" type="text" ref={this.links} required />
+          <Input placeholder="Favourite link" type="text" ref={this.links} required />
           <Button>Add</Button>
         </Form>
         <LinksContainer>{display}</LinksContainer>

@@ -19,20 +19,20 @@ class ContentContainer extends Component {
       rnd: {
         SL: {
           width: "198px",
-          height: "340px",
-          x: 300,
+          height: "310px",
+          x: 345,
           y: 0
         },
         Todo: {
           width: "209px",
-          height: "94px",
-          x: 25,
+          height: "300px",
+          x: 20,
           y: 0
         },
         Weather: {
           width: "167px",
           height: "234px",
-          x: 800,
+          x: 660,
           y: 0
         },
         Quotes: {
@@ -43,8 +43,8 @@ class ContentContainer extends Component {
         },
         FavouriteLinks: {
           width: "195px",
-          height: "75px",
-          x: 1032,
+          height: "234px",
+          x: 950,
           y: 0
         }
       },

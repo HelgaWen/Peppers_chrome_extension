@@ -1,6 +1,7 @@
 /* global chrome */
 import React, { Component } from "react";
 import { ContentCard } from "../styles/general";
+import {Text, Author} from '../styles/quotesStyles';
 
 class Quotes extends Component {
   url = "http://quotes.rest/qod.json";
@@ -77,8 +78,8 @@ class Quotes extends Component {
     const display = this.state.quotes.data ? (
       <ContentCard cssPosition={this.props.position}>
         <div>
-          <p>{this.state.quotes.data.contents.quotes[0].quote}</p>
-          <p>{this.state.quotes.data.contents.quotes[0].author}</p>
+          <Text>{this.state.quotes.data.contents.quotes[0].quote}</Text>
+          <Author>{this.state.quotes.data.contents.quotes[0].author}</Author>
         </div>
       </ContentCard>
     ) : (
