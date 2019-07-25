@@ -60,15 +60,12 @@ const GreetingTextAndClockContainer = styled.div`
   flex-direction: column;
 `;
 
-
 const ClockWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   font-size: 1.7rem;
   padding-left: 10px;
 `;
-
-
 
 export {
   GreetingWrapper,
